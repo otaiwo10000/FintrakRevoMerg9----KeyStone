@@ -1,0 +1,72 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div>
+        <a class="btn btn-info btn-xs" data-ui-sref="mpr-dimaudit-edit({dimaudit:0})"> Create New</a>
+    </div>-->
+
+            <!--<div class="form-group col-sm-2">
+                <input type="text" class="form-control input-sm" data-ng-model="vm.searchvalue1" placeholder="Search" style="background-color: lightblue" />
+            </div>
+            <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.obuLoad()">Load Data</button>
+            <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.refreshOBU()">Referesh</button>-->
+
+            <br />
+
+            <table id="misnewotherTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Old mis</th>
+                        <th>New mis</th>
+                        <th>Teamname</th>
+                        <th>State</th>
+                        <th>Accountofficer Code</th>
+
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="d in vm.misNewOthers">
+                        <td>
+                            {{ d.Old_mis}}
+                        </td>
+
+                        <td>
+                            {{ d.New_mis}}
+                        </td>
+
+                        <td>
+                            {{ d.Teamname}}
+                        </td>
+
+                        <td>
+                            {{ d.State}}
+                        </td>
+
+                        <td>
+                            {{ d.Accountofficer_code }}
+                        </td>
+                       
+                        <!--<td>
+        <a class="btn btn-orange btn-xs" data-ui-sref="mpr-abcratio-edit({abcratioId: abcRatio.AbcRatioId})">
+            Edit
+        </a>
+    </td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

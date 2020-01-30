@@ -1,0 +1,179 @@
+﻿
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i> General</a></li>
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+                                                <div data-ng-include="'app/common/views/validation-view.html'"></div>
+
+
+                                                <div class="form-group col-sm-12">
+                                                    <div class="form-group col-sm-4">
+                                                        <label class="col-sm-4 control-label" style="font-size:small; font-weight:600;">Year</label>
+                                                        <div class="col-sm-8 controls">
+                                                            <select ng-model="vm.paramsObj.Year" class="form-control input-sm" ng-options="t.value as t.name for t in vm.yearList" style="background-color: lightblue"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr style="width:100%" />
+
+                                                <div class="form-group col-sm-12">
+                                                    <div class="col-sm-offset-4 col-sm-3" style="font-weight:bold">Mapping of Brach to Division</div>
+                                                </div>
+                                                <br />
+                                                <br />
+
+                                                <div class="form-group col-sm-12">
+                                                    <div class="form-group col-sm-4">
+                                                        <label class="col-sm-4 control-label" style="font-size:small; font-weight:600;">PC Mis (Branch)</label>
+                                                        <div class="col-sm-8 controls">
+                                                            <select class="form-control" ng-model="branch" ng-options="branch as branch.Name for branch in vm.tsBranch" ng-change="vm.tsOnSelectTeamFunc(branch.Code, branch.Name, 'BRH')" style="width:250px;"></select>
+                                                        </div>
+                                                    </div> <div class="form-group col-sm-1">&nbsp</div>
+                                                    <div class="form-group col-sm-4">
+                                                        <label class="col-sm-4 control-label" style="font-size:small; font-weight:600;">PC Mis (Division)</label>
+                                                        <div class="col-sm-8 controls">
+                                                            <select class="form-control" ng-model="division" ng-options="division as division.Name for division in vm.tsDivision" ng-change="vm.tsOnSelectBranchFunc(division.Code, division.Name, 'DIV')" style="width:250px;"></select>
+                                                        </div>
+                                                    </div> <div class="form-group col-sm-1">&nbsp</div>
+
+                                                    <div class="form-group mbn col-sm-2">
+                                                        <!--<label class="control-label"></label>-->
+                                                        <div class="col-sm-12 controls">
+                                                            <button type="button" class="btn btn-success btn-xs" ng-click="vm.save_brhdiv()">
+                                                                <i class="fa fa-save"></i>&nbsp;
+                                                                Save
+                                                            </button>
+                                                            <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel_brhdiv()">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <hr style="width:100%" />
+
+                                                <div class="form-group col-sm-12">
+                                                    <div class="col-sm-offset-4 col-sm-3" style="font-weight:bold">Mapping of Division to Region</div>
+                                                </div>
+                                                <br />
+                                                <br />
+
+                                                <div class="form-group col-sm-12">
+                                                    <div class="form-group col-sm-4">
+                                                        <label class="col-sm-4 control-label" style="font-size:small; font-weight:600;">PC Mis (Division)</label>
+                                                        <div class="col-sm-8 controls">
+                                                            <select class="form-control" ng-model="division2" ng-options="division2 as division2.Name for division2 in vm.tsDivision" ng-change="vm.tsOnSelectBranch2Func(division2.Code, division2.Name, 'DIV')" style="width:250px;"></select>
+                                                        </div>
+                                                    </div> <div class="form-group col-sm-1">&nbsp</div>
+                                                    <div class="form-group col-sm-4">
+                                                        <label class="col-sm-4 control-label" style="font-size:small; font-weight:600;">PC Mis (Region)</label>
+                                                        <div class="col-sm-8 controls">
+                                                            <select class="form-control" ng-model="region" ng-options="region as region.Name for region in vm.tsRegion" ng-change="vm.tsOnSelectRegionFunc(region.Code, region.Name, 'REG')" style="width:250px;"></select>
+                                                        </div>
+                                                    </div> <div class="form-group col-sm-1">&nbsp</div>
+
+                                                    <div class="form-group mbn col-sm-2 ">
+                                                        <!--<label class="control-label"></label>-->
+                                                        <div class="col-sm-12 controls">
+                                                            <button type="button" class="btn btn-success btn-xs" ng-click="vm.save_divreg()">
+                                                                <i class="fa fa-save"></i>&nbsp;
+                                                                Save
+                                                            </button>
+                                                            <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel_divreg()">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <hr style="width:100%" />
+
+                                                <div class="col-sm-offset-4 col-sm-4" style="font-weight:bold"> Mapping of Region to Directorate</div>
+                                                <br />
+                                                <br />
+
+                                                <div class="form-group col-sm-12">
+                                                    <div class="form-group col-sm-4">
+                                                        <label class="col-sm-4 control-label" style="font-size:small; font-weight:600;">PC Mis (Region)</label>
+                                                        <div class="col-sm-8 controls">
+                                                            <select class="form-control" ng-model="region2" ng-options="region2 as region2.Name for region2 in vm.tsRegion" ng-change="vm.tsOnSelectRegion2Func(region2.Code, region2.Name, 'REG')" style="width:250px;"></select>
+                                                        </div>
+                                                    </div> <div class="form-group col-sm-1">&nbsp</div>
+                                                    <div class="form-group col-sm-4">
+                                                        <label class="col-sm-4 control-label" style="font-size:small; font-weight:600;">PC Mis (Directorate)</label>
+                                                        <div class="col-sm-8 controls">
+                                                            <select class="form-control" ng-model="directorate" ng-options="directorate as directorate.Name for directorate in vm.tsDirectorate" ng-change="vm.tsOnSelectDivisionFunc(directorate.Code, directorate.Name, 'DIR')" style="width:250px;"></select>
+                                                        </div>
+                                                    </div> <div class="form-group col-sm-1">&nbsp</div>
+
+                                                    <div class="form-group mbn col-sm-2 ">
+                                                        <label class="control-label"></label>
+                                                        <div class="col-sm-12 controls">
+                                                            <button type="button" class="btn btn-success btn-xs" ng-click="vm.save_regdir()">
+                                                                <i class="fa fa-save"></i>&nbsp;
+                                                                Save
+                                                            </button>
+                                                            <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel_regdir()">Cancel</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!--<div class="form-group">
+        <label class="col-sm-3 control-label">PC Mis (Region)</label>
+        <div class="col-sm-9 controls">
+            <select class="form-control" ng-model="region" ng-options="region as region.Name for region in vm.tsRegion" ng-change="vm.tsOnSelectRegionFunc(region.Code, region.Name, 'REG')" style="width:250px;"></select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label">PC Mis (Directorate)</label>
+        <div class="col-sm-9 controls">
+            <select class="form-control" ng-model="directorate" ng-options="directorate as directorate.Name for directorate in vm.tsDirectorate" ng-change="vm.tsOnSelectDivisionFunc(directorate.Code, directorate.Name, 'DIR')" style="width:250px;"></select>
+        </div>
+    </div> -->
+                                                <!--<div class="form-group mbn">
+        <label class="col-sm-3 control-label"></label>
+        <div class="col-sm-9 controls">
+            <button type="button" class="btn btn-success btn-xs" ng-click="vm.save()">
+                <i class="fa fa-save"></i>&nbsp;
+                Save
+            </button>
+            <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.delete()">Delete</button>
+            <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel()">Cancel</button>
+        </div>
+    </div>-->
+
+                                            </div>
+</form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+

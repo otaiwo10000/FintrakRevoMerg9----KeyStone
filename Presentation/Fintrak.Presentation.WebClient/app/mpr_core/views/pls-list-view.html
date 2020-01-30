@@ -1,0 +1,269 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div>
+        <a class="btn btn-info btn-xs" data-ui-sref="mpr-dimaudit-edit({dimaudit:0})"> Create New</a>
+    </div>-->
+            <!--<div class="form-group col-sm-2">
+        <input type="text" class="form-control input-sm" data-ng-model="vm.searchvalue1" placeholder="Search" style="background-color: lightblue" />
+    </div>
+    <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.obuLoad()">Load Data</button>
+    <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.refreshOBU()">Referesh</button>-->
+
+            <button class="btn btn-primary btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.toggleReportPage()">{{vm.toggleText}}</button>
+
+            <div id="newdetail" name="a">
+
+                <div class="form-group col-sm-2">
+                    <input type="text" class="form-control input-sm" data-ng-model="vm.searchvalue1" placeholder="Search" style="background-color: lightblue" />
+                </div>
+                <div class="form-group col-sm-2">
+                     <select ng-model="vm.period" class="form-control input-sm" ng-options="t.value as t.name for t in vm.periodList" style="background-color: lightblue"></select>
+                </div>
+                <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.obuLoad()">Load Data</button>
+                <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.refreshOBU()">Referesh</button>
+
+                <br />
+
+                <table id="iindTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                    <thead>
+                        <tr>
+                            <th>MIS_Code</th>
+                            <th>Caption</th>
+                            <th>Accountnumber</th>
+                            <th>CustomerName</th>
+                            <th>AccountOfficer_Code</th>
+                            <th>Period</th>
+                            <th>Year</th>
+                            <th>Narrative</th>
+                            <th>EntryStatus</th>
+                            <th>GLName</th>
+                            <th>Amount</th>
+                            <th>DateEntered</th>
+                            <th>ProductCode</th>
+                            <th>Tran_ID</th>
+                            <th>Tran_Date</th>
+                            <th>RunDate</th>
+                            <th>StaffID</th>
+                            <th>Sbucode</th>
+
+                            <!--<th style="width: 3%;">Action</th>-->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="d in vm.incomeincomenewdetails">
+                            <td>
+                                {{ d.MIS_Code}}
+                            </td>
+
+                            <td>
+                                {{ d.Caption}}
+                            </td>
+
+                            <td>
+                                {{ d.Accountnumber}}
+                            </td>
+
+                            <td>
+                                {{ d.CustomerName}}
+                            </td>
+
+                            <td>
+                                {{ d.AccountOfficer_Code}}
+                            </td>
+
+                            <td>
+                                {{ d.Period}}
+                            </td>
+
+                            <td>
+                                {{ d.Year}}
+                            </td>
+
+                            <td>
+                                {{ d.Narrative}}
+                            </td>
+
+                            <td>
+                                {{ d.EntryStatus }}
+                            </td>
+
+                            <td>
+                                {{ d.GLName}}
+                            </td>
+
+                            <td>
+                                {{ d.Amount }}
+                            </td>
+
+                            <td>
+                                {{ d.DateEntered}}
+                            </td>
+
+                            <td>
+                                {{ d.ProductCode}}
+                            </td>
+
+                            <td>
+                                {{ d.Tran_ID}}
+                            </td>
+
+                            <td>
+                                {{ d.Tran_Date}}
+                            </td>
+
+                            <td>
+                                {{ d.RunDate}}
+                            </td>
+
+                            <td>
+                                {{ d.StaffID}}
+                            </td>
+
+                            <td>
+                                {{ d.Sbucode}}
+                            </td>
+
+
+                            <!--<td>
+                        <a class="btn btn-orange btn-xs" data-ui-sref="mpr-abcratio-edit({abcratioId: abcRatio.AbcRatioId})">
+                            Edit
+                        </a>
+                    </td>-->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr style="width:100%" />
+            <!--  ======================================================================= -->
+
+            <button class="btn btn-primary btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.toggleReportPage2()">{{vm.toggleText2}}</button>
+
+            <div id="otherbreakdown" name="a">
+
+                <div class="form-group col-sm-2">
+                    <input type="text" class="form-control input-sm" data-ng-model="vm.searchvalue2" placeholder="Search" style="background-color: lightblue" />
+                </div>
+                <div class="form-group col-sm-2">
+                     <select ng-model="vm.period2" class="form-control input-sm" ng-options="t.value as t.name for t in vm.periodList2" style="background-color: lightblue"></select>
+                </div>
+                <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.obuLoad2()">Load Data</button>
+                <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.refreshOBU2()">Referesh</button>
+
+                <br />
+
+                <table id="iiobTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                    <thead>
+                        <tr>
+                            <th>MIS_Code</th>
+                            <th>Caption</th>
+                            <th>Accountnumber</th>
+                            <th>Narrative</th>
+                            <th>CustomerName</th>
+                            <th>Period</th>
+                            <th>Year</th>
+                            <th>Amount</th>
+                            <th>AccountOfficer_Code</th>
+                            <th>Volume</th>
+                            <th>Indicator</th>
+                            <th>EntryStatus</th>
+                            <th>DateEntered</th>
+                            <th>ProductCode</th>
+                            <th>RunDate</th>
+                            <th>EntryDate</th>
+
+                            <!--<th style="width: 3%;">Action</th>-->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="d in vm.incomeincomeotherbreakdown">
+                            <td>
+                                {{ d.MIS_Code}}
+                            </td>
+
+                            <td>
+                                {{ d.Caption}}
+                            </td>
+
+                            <td>
+                                {{ d.Accountnumber}}
+                            </td>
+
+                            <td>
+                                {{ d.Narrative}}
+                            </td>
+
+                            <td>
+                                {{ d.CustomerName}}
+                            </td>
+
+                            <td>
+                                {{ d.Period}}
+                            </td>
+
+                            <td>
+                                {{ d.Year}}
+                            </td>
+
+                            <td>
+                                {{ d.Amount}}
+                            </td>
+
+                            <td>
+                                {{ d.AccountOfficer_Code }}
+                            </td>
+
+                            <td>
+                                {{ d.Volume}}
+                            </td>
+
+                            <td>
+                                {{ d.Indicator }}
+                            </td>
+
+                            <td>
+                                {{ d.EntryStatus}}
+                            </td>
+
+                            <td>
+                                {{ d.DateEntered}}
+                            </td>
+
+                            <td>
+                                {{ d.ProductCode}}
+                            </td>
+
+                            <td>
+                                {{ d.RunDate}}
+                            </td>
+
+                            <td>
+                                {{ d.EntryDate}}
+                            </td>
+
+                            <!--<td>
+                        <a class="btn btn-orange btn-xs" data-ui-sref="mpr-abcratio-edit({abcratioId: abcRatio.AbcRatioId})">
+                            Edit
+                        </a>
+                    </td>-->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+        </div>
+</div>

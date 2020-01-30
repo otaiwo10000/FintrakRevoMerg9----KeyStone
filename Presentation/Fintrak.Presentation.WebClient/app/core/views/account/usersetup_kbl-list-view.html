@@ -1,0 +1,84 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!-- <div>
+        <a class="btn btn-info btn-xs" data-ui-sref="core-usersetup-edit({usersetupId:0})"> Create New</a>
+    </div>
+    <br />-->
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="core-usersetup_kbl-edit({usersetupId:0})"> Create New User</a>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-usermis_kbl-edit({usermisId:0})"> Map User to MIS</a>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <button type="button" class="btn btn-info btn-xs" data-ng-click="vm.gotoUserMisList()">goto MIS Users</button>
+            </div>
+
+            <table id="userSetupTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th>Login ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Staff ID</th>
+
+                        <th>MisCode</th>
+                        <th>Grade</th>
+                        <th>ManagerID</th>
+                        <th>Segment</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>  
+                <tbody>
+                    <tr ng-repeat="userSetup in vm.userSetups">
+
+                        <td>
+                            {{ userSetup.LoginID}}
+                        </td>
+                        <td>
+                            {{ userSetup.Name}}
+                        </td>
+                        <td>
+                            {{ userSetup.Email}}
+                        </td>
+                        <td>
+                            {{ userSetup.StaffID}}
+                        </td>
+
+                        <td>
+                            {{ userSetup.Mis_Code}}
+                        </td>
+                        <td>
+                            {{ userSetup.Grade}}
+                        </td>
+                        <td>
+                            {{ userSetup.ManagerID}}
+                        </td>
+                        <td>
+                            {{ userSetup.Segment}}
+                        </td>
+                        
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="core-usersetup_kbl-edit({usersetupId: userSetup.UserSetupId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

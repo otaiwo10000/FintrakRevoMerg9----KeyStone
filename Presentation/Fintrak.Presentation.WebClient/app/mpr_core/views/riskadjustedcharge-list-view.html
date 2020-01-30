@@ -1,0 +1,89 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-ratios-edit({ratiosId:0})"> Create New</a>
+            </div>-->
+            <br />
+
+            <table id="racTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Account Number</th>
+                        <th>Amount</th>
+                        <th>Risk Definition Code</th>
+                        <th>Account Officer Code</th>
+                        <th>Team Code</th>
+                        <th>BranchCode</th>
+                        <th>MemoCode</th>
+                        <th>SectorCode</th>
+                        <th>SegmentCode</th>
+                        <th>AccountTitle</th>
+                        <th>CurrencyType</th>
+                        <th>Productcode</th>
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="i in vm.rac">
+                        <td>
+                            {{ i.AccountNo}}
+                        </td>
+                        <td>
+                            {{ i.Amount}}
+                        </td>
+                        <td>
+                            {{ i.RiskDefinitionCode}}
+                        </td>
+                        <td>
+                            {{ i.AccountOfficerCode}}
+                        </td>
+                        <td>
+                            {{ i.TeamCode}}
+                        </td>
+
+                        <td>
+                            {{ i.BranchCode}}
+                        </td>
+                        <td>
+                            {{ i.MemoCode}}
+                        </td>
+                        <td>
+                            {{ i.SectorCode}}
+                        </td>
+                        <td>
+                            {{ i.SegmentCode}}
+                        </td>
+                        <td>
+                            {{ i.AccountTitle}}
+                        </td>
+
+                        <td>
+                            {{ i.CurrencyType}}
+                        </td>
+                        <td>
+                            {{ i.Productcode}}
+                        </td>
+                        <!--<td>
+        <a class="btn btn-orange btn-xs" data-ui-sref="mpr-ratios-edit({ratiosId: ratio.RatiosId})">
+            Edit
+        </a>
+    </td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,183 @@
+﻿<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+               
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i>MPR Income Product</a></li>
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <!--<div class="col-md-7">-->
+                                <div class="col-md-12">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+                                                <div data-ng-include="'app/common/views/validation-view.html'"></div>
+
+                                                <div class="form-group col-sm-12">
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="control-label">Product Code</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.ProductCode" style="background-color: lightblue" />
+                                                    </div>
+                                                    <div class="form-group col-sm-4">
+                                                        <label class="control-label">Product Name</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.ProductName" style="background-color: lightblue" />
+                                                    </div>
+                                                    <div class="form-group col-sm-3" ng-show="vm.clist">
+                                                        <label for="ldefcode" class="control-label">Caption</label>
+                                                        <select class="form-control" ng-model="vm.ipt.Caption" ng-options="d.Name as d.Name for d in vm.captionsList" style="background-color: lightblue"></select>
+                                                    </div>
+                                                    <div class="form-group col-sm-3" ng-show="vm.cedit">
+                                                        <label class="control-label">Caption</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.Caption" style="background-color: lightblue" />
+                                                    </div>
+                                                    <div class="form-group col-sm-2">
+                                                        <label for="ldefcode" class="control-label">Category</label>
+                                                        <select class="form-control" ng-model="vm.ipt.Category" ng-options="d.Value as d.Name for d in vm.categoryList" style="background-color: lightblue"></select>
+                                                    </div>
+                                                    <div class="form-group col-sm-1">&nbsp</div>
+                                                </div>
+
+                                                <div class="form-group col-sm-12">
+                                                    <div class="form-group col-sm-2">
+                                                        <label for="ldefcode" class="control-label">Category Filter</label>
+                                                        <select class="form-control" ng-model="vm.ipt.Category_Filter" ng-options="d.Value as d.Name for d in vm.categoryFilterList" style="background-color: lightblue"></select>
+                                                    </div>
+                                                    <div class="form-group col-sm-2">
+                                                        <label for="ldefcode" class="control-label">PPR Status</label>
+                                                        <select class="form-control" ng-model="vm.ipt.PPR_Status" ng-options="d.Value as d.Name for d in vm.pprstatusList" style="background-color: lightblue"></select>
+                                                    </div>
+                                                    <div class="form-group col-sm-2">
+                                                        <label for="ldefcode" class="control-label">Currency</label>
+                                                        <select class="form-control" ng-model="vm.ipt.Currency" ng-options="d.Value as d.Name for d in vm.currencyList" style="background-color: lightblue"></select>
+                                                    </div>
+                                                    <div class="form-group col-sm-3">
+                                                        <label class="control-label">Volume GL</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.VolumeGL" style="background-color: lightblue" />
+                                                    </div>
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="control-label">Rev GL</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.RevGL" style="background-color: lightblue" />
+                                                    </div>
+                                                    <!--<div class="form-group col-sm-1">&nbsp</div>-->
+                                                    <!--<div class="form-group col-sm-1">&nbsp</div>-->
+                                                </div>
+
+                                                <div class="form-group col-sm-12">
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="control-label">Exp GL</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.ExpGL" style="background-color: lightblue" />
+                                                    </div>
+                                                    <div class="form-group col-sm-3">
+                                                        <label for="ldefcode" class="control-label">Group Code</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.GroupCode" style="background-color: lightblue" />
+                                                    </div>
+                                                    <div class="form-group col-sm-3">
+                                                        <label for="ldefcode" class="control-label">SubGroup Code</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.SubGroupCode" style="background-color: lightblue" />
+                                                    </div>
+                                                    <div class="form-group col-sm-2">
+                                                        <label for="ldefcode" class="control-label">APR Status</label>
+                                                        <select class="form-control" ng-model="vm.ipt.APR_Status" ng-options="d.Value as d.Name for d in vm.aprstatusList" style="background-color: lightblue"></select>
+                                                    </div>
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="control-label">Product Type</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.ProductType" style="background-color: lightblue" />
+                                                    </div>
+                                                    <!--<div class="form-group col-sm-1">&nbsp</div>-->
+                                                </div>
+
+                                                <div class="form-group col-sm-12">
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="control-label">Position</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.Position" style="background-color: lightblue" />
+                                                    </div>
+                                                    <div class="form-group col-sm-3">
+                                                        <label class="control-label">ReplicationCaption</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.ReplicationCaption" style="background-color: lightblue" />
+                                                    </div>
+                                                    <div class="form-group col-sm-3">
+                                                        <label class="control-label">DeductionCaption</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.DeductionCaption" style="background-color: lightblue" />
+                                                    </div>
+                                                    <div class="form-group col-sm-3">
+                                                        <label class="control-label">RetailCaption</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.RetailCaption" style="background-color: lightblue" />
+                                                    </div>
+                                                    <!--<div class="form-group col-sm-1">&nbsp</div>-->
+                                                </div>
+
+                                                <div class="form-group col-sm-12">
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="control-label">Del Flg</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.Del_Flg" style="background-color: lightblue" />
+                                                    </div>
+                                                    <div class="form-group col-sm-3">
+                                                        <label class="control-label">Product SuperCaption</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.Product_SUPERCAPTION" style="background-color: lightblue" />
+                                                    </div>
+
+                                                    <!--<div class="form-group col-sm-2">
+            <label for="ldefcode" class="control-label">Product_SUPERCAPTION</label>
+            <select class="form-control" ng-model="vm.ipt.GroupCaption" ng-options="d.GroupCaption as d.GroupCaption for d in vm.groupcaptionsList" style="background-color: lightblue"></select>
+        </div>-->
+
+
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="control-label">PPR_Caption</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.PPR_Caption" style="background-color: lightblue" />
+                                                    </div>
+
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="control-label">Cash_Reserve_Item</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.Cash_Reserve_Item" style="background-color: lightblue" />
+                                                    </div>
+
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="control-label">Pool_Type</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.ipt.Pool_Type" style="background-color: lightblue" />
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="form-group mbn">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="col-sm-9 controls">
+                                                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.save()">
+                                                            <i class="fa fa-save"></i>&nbsp;
+                                                            Save
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.delete()">Delete</button>
+                                                        <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel()">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+

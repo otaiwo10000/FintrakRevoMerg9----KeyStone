@@ -1,0 +1,134 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div>
+        <a class="btn btn-info btn-xs" data-ui-sref="mpr-opexrawexpense-edit({opexrawexpenseId:0})"> Create New</a>
+    </div>-->
+
+
+            <div class="form-group col-sm-1">
+                <!--<label class="control-label">Enter Year</label>-->
+                <input type="text" class="form-control input-sm" data-ng-model="vm.SearchValue" placeholder="Search value" style="background-color: lightblue" />
+            </div>
+            <button type="button" class="btn btn-default btn-sm" data-ng-click="vm.opexLoad()">Load</button>
+            <div class="form-group col-sm-1">&nbsp</div>
+            <button type="button" class="btn btn-info btn-xs" data-ng-click="vm.refresh()">Refresh</button>
+            <button type="button" id="dexcel" name="dexcel" class="btn btn-info btn-xs" >DownLoadtoExcel</button>
+
+            <table id="opexRawExpenseTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>GL Code</th>
+                        <th>GL Name</th>
+                        <th>Post Date</th>
+                        <th>Amount</th>
+                        <th>Description</th>
+                        <th>Check MIS Code</th>
+                        <th>Check MIS Code2</th>
+                        <th>MIS Code</th>
+                        <th>Branch Code</th>
+                        <th>Tran ID</th>
+                        <th>SUB GL</th>
+
+                        <th>SBUCODE</th>
+                        <th>Account</th>
+                        <th>Product</th>
+
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="o in vm.opexRawExpensesFixed">
+                        <td>
+                            {{ o.GL_Code}}
+                        </td>
+                        <td>
+                            {{ o.GL_Name}}
+                        </td>
+                        <td>
+                            {{ o.Post_Date}}
+                        </td>
+                        <td>
+                            {{ o.Amount}}
+                        </td>
+                        <td>
+                            {{ o.Description}}
+                        </td>
+                        <td>
+                            {{ o.ChkMIS1}}
+                        </td>
+                        <td>
+                            {{ o.ChkMIS2}}
+                        </td>
+                        <td>
+                            {{ o.MIS_Code}}
+                        </td>
+                        <td>
+                            {{ o.BranchCode}}
+                        </td>
+                        <td>
+                            {{ o.TRANSID}}
+                        </td>
+                        <td>
+                            {{ o.SUBGL}}
+                        </td>
+
+                        <td>
+                            {{ o.SBUCODE}}
+                        </td>
+                        <td>
+                            {{ o.Account}}
+                        </td>
+                        <td>
+                            {{ o.Product}}
+                        </td>
+
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-opexrawexpensesfixed-edit({opexrawexpensesfixedId: o.FINID})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../app/assets/js/jquery/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#dexcel").on('click', function () {
+
+            $.ajax({
+                //url: '@Url.Action("ExcelFileDownLoadOnClient", "filedownload")',
+                url: 'http://localhost:6861/filedownload/ExcelFileDownLoadOnClient',
+                type: "GET",
+                dataType: "json",
+
+                success: function () {
+                    //window.location.href = "/account/login";
+                    //window.location.href = result.redirectUrl;
+                    //window.location.replace = "/account/login";
+                } //end of success
+            });  //end of 1st ajax
+
+            //$('#label1000').html('working');
+
+        }); //end of #logout
+    });
+</script>

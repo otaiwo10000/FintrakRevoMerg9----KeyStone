@@ -1,0 +1,91 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-slaryschedule-edit({ID:0})"> Create New</a>
+            </div>
+            <br />
+
+            <table id="slaryScheduleTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Emp ID</th>
+                        <th>EMP Name</th>
+                        <th>Emp Level</th>
+                        <th>MIS Code</th>
+                        <th>Amount</th>
+                        <th>Pay Code</th>
+                        <th>Location</th>
+                        <th>SBU</th>
+                        <th>Sol</th>
+                        <th>Annual Pay</th>
+                        <th>SType</th>
+
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="s in vm.slaryschedule">
+                        <td>
+                            {{ s.EmpID}}
+                        </td>
+
+                        <td>
+                            {{ s.EMP_Name}}
+                        </td>
+                        <td>
+                            {{ s.Emp_Level}}
+                        </td>
+
+                        <td>
+                            {{ s.MIS_Code}}
+                        </td>
+                        <td>
+                            {{ s.Amount}}
+                        </td>
+
+                        <td>
+                            {{ s.Pay_Code}}
+                        </td>
+                        <td>
+                            {{ s.Location}}
+                        </td>
+
+                        <td>
+                            {{ s.SBU}}
+                        </td>
+                        <td>
+                            {{ s.Sol}}
+                        </td>
+
+                        <td>
+                            {{ s.AnnualPay}}
+                        </td>
+                        <td>
+                            {{ s.SType}}
+                        </td>
+
+                       
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-slaryschedule-edit({ID: s.ID})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

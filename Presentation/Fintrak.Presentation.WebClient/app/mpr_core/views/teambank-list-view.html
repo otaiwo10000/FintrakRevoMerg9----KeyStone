@@ -1,0 +1,125 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-ts-edit({teambankid:0})"> Create New</a>
+            </div>
+            <br />
+            <form class="form-inline">
+                <!--<div>-->
+                <div class="form-group col-sm-2">
+                    <!--<label class="control-label">Enter the start Team Name/Code</label>-->
+                    <input type="text" class="form-control input-sm" data-ng-model="vm.SearchValue" placeholder="Enter the start Team Name/Code" style="background-color: lightblue" />
+                </div>
+                <!--<div class="form-group col-sm-1">&nbsp</div>-->
+
+                <div class="form-group col-sm-1">
+                    <!--<label class="control-label">Enter Year</label>-->
+                    <input type="text" class="form-control input-sm" data-ng-model="vm.year" placeholder="Year" style="background-color: lightblue" />
+                </div>
+
+
+                <button type="button" class="btn btn-default btn-sm" data-ng-click="vm.teambankLoad()">Load</button>
+                <div class="form-group col-sm-1">&nbsp</div>
+                <button type="button" class="btn btn-info btn-xs" data-ng-click="vm.refreshTeamBank()">Refresh</button>
+
+                <!--</div>-->
+            </form>
+
+
+            <table id="teambankTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th>AccountOfficer Code</th>
+                        <th>AccountOfficer Name</th>
+
+                        <th>Branch Code</th>
+                        <th>Branch Name</th>
+
+                        <th>Division Code</th>
+                        <th>Division Name</th>
+
+                        <th>Region Code</th>
+                        <th>Region Name</th>
+
+                        <th>Directorate Code</th>
+                        <th>Directorate Name</th>
+
+                        <th>Staff Id</th>
+                        <th>Year</th>
+
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="c in vm.teambank">
+
+                        <td>
+                            {{ c.AccountOfficer_Code}}
+                        </td>
+                        <td>
+                            {{ c.AccountOfficer_Name}}
+                        </td>
+
+                        <td>
+                            {{ c.Team_Code}}
+                        </td>
+                        <td>
+                            {{ c.TeamName}}
+                        </td>
+
+                        <td>
+                            {{ c.Branch_Code}}
+                        </td>
+                        <td>
+                            {{ c.BranchName}}
+                        </td>
+
+                        <td>
+                            {{ c.Region_Code}}
+                        </td>
+                        <td>
+                            {{ c.RegionName}}
+                        </td>
+
+                        <td>
+                            {{ c.Division_Code}}
+                        </td>
+                        <td>
+                            {{ c.DivisionName}}
+                        </td>
+
+                        <td>
+                            {{ c.staff_id}}
+                        </td>
+                        <td>
+                            {{ c.Year}}
+                        </td>
+
+                      
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-teambank-edit({teambankid: c.TeamBankId})">
+                                Edit
+                            </a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

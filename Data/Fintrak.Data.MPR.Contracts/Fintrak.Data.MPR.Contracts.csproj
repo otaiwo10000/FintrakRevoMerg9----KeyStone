@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4DD9C98C-DCEA-49F1-9BE3-EAE298FF1B42}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fintrak.Data.MPR.Contracts</RootNamespace>
+    <AssemblyName>Fintrak.Data.MPR.Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Linq.Dynamic">
+      <HintPath>..\..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Workflow.ComponentModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DTOs\MPR_BS\BalanceSheetThresholdInfo.cs" />
+    <Compile Include="DTOs\MPR_BS\CustomerTransferPriceInfo.cs" />
+    <Compile Include="DTOs\MPR_BS\CategoryTransferPriceInfo.cs" />
+    <Compile Include="DTOs\MPR_BS\BSCaptionInfo.cs" />
+    <Compile Include="DTOs\MPR_BS\BSGLMappingInfo.cs" />
+    <Compile Include="DTOs\MPR_BS\MPRProductInfo.cs" />
+    <Compile Include="DTOs\MPR_BS\NonProductMapInfo.cs" />
+    <Compile Include="DTOs\MPR_BS\NonProductRateInfo.cs" />
+    <Compile Include="DTOs\MPR_BS\ProductMISInfo.cs" />
+    <Compile Include="DTOs\MPR_Core\AccountMISInfo.cs" />
+    <Compile Include="DTOs\MPR_Core\AccountTransferPriceInfo.cs" />
+    <Compile Include="DTOs\MPR_Core\MISTransferPriceInfo.cs" />
+    <Compile Include="DTOs\MPR_Core\ProductTransferPriceInfo.cs" />
+    <Compile Include="DTOs\MPR_Core\IncomeAccountsNplInfo.cs" />
+    <Compile Include="DTOs\MPR_Income\IncomeNEAMappingInfo.cs" />
+    <Compile Include="DTOs\MPR_Core\ScoreCardMetricsInfo.cs" />
+    <Compile Include="DTOs\MPR_Core\ScoreCardMappingInfo.cs" />
+    <Compile Include="DTOs\MPR_Core\ScoreCardWeightInfo.cs" />
+    <Compile Include="DTOs\MPR_Core\ManagementTreeInfo.cs" />
+    <Compile Include="DTOs\MPR_Core\MemoAccountMapInfo.cs" />
+    <Compile Include="DTOs\MPR_Core\MemoGLMapInfo.cs" />
+    <Compile Include="DTOs\MPR_Core\MemoProductMapInfo.cs" />
+    <Compile Include="DTOs\MPR_Core\MPRSetUpInfo.cs" />
+    <Compile Include="DTOs\MPR_Core\ProductInterestInfo.cs" />
+    <Compile Include="DTOs\MPR_Core\TeamInfo.cs" />
+    <Compile Include="DTOs\MPR_Core\TransferPriceInfo.cs" />
+    <Compile Include="DTOs\MPR_OPEX\CostCentreInfo.cs" />
+    <Compile Include="DTOs\MPR_OPEX\ExpenseGLMappingInfo.cs" />
+    <Compile Include="DTOs\MPR_OPEX\ExpenseMappingInfo.cs" />
+    <Compile Include="DTOs\MPR_OPEX\ExpenseProductMappingInfo.cs" />
+    <Compile Include="DTOs\MPR_OPEX\ExpenseRawBasisInfo.cs" />
+    <Compile Include="DTOs\MPR_OPEX\OpexAbcExemptionInfo.cs" />
+    <Compile Include="DTOs\MPR_OPEX\OpexManagementTreeInfo.cs" />
+    <Compile Include="DTOs\MPR_OPEX\OpexMISReplacementInfo.cs" />
+    <Compile Include="DTOs\MPR_OPEX\OpexReportInfo.cs" />
+    <Compile Include="DTOs\MPR_OPEX\StaffCostInfo.cs" />
+    <Compile Include="DTOs\MPR_PL\IncomeCentralVaultScheduleInfo.cs" />
+    <Compile Include="DTOs\MPR_PL\GLExceptionInfo.cs" />
+    <Compile Include="DTOs\MPR_PL\GLMISInfo.cs" />
+    <Compile Include="DTOs\MPR_PL\GLReclassificationInfo.cs" />
+    <Compile Include="DTOs\MPR_PL\MPRGLMappingInfo.cs" />
+    <Compile Include="DTOs\MPR_PL\MPRPLDerivedCaptionInfo.cs" />
+    <Compile Include="DTOs\MPR_PL\MPRTotalLineInfo.cs" />
+    <Compile Include="DTOs\MPR_PL\MPRTotalLineMakeUpInfo.cs" />
+    <Compile Include="DTOs\MPR_PL\PLCaptionInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository Interfaces\IncomeProductTable\IIncomeCommFeeLineCaptionRepository.cs" />
+    <Compile Include="Repository Interfaces\IncomeProductTable\IIncomeLineCaptonRepository.cs" />
+    <Compile Include="Repository Interfaces\IncomeProductTable\IIncomeProductTableALTRepository.cs" />
+    <Compile Include="Repository Interfaces\IncomeProductTable\IKBL_MISProductCategoryInfoRepository.cs" />
+    <Compile Include="Repository Interfaces\IncomeProductTable\IIncomeNEAMappingRepository.cs" />
+    <Compile Include="Repository Interfaces\IncomeProductTable\IIncomeProductstableUnitRepository.cs" />
+    <Compile Include="Repository Interfaces\IncomeProductTable\IIncomeProductsTableTreasuryRepository.cs" />
+    <Compile Include="Repository Interfaces\IncomeProductTable\IIncomeCaptionPositionRepository.cs" />
+    <Compile Include="Repository Interfaces\IncomeProductTable\IPPRCaptionRepository.cs" />
+    <Compile Include="Repository Interfaces\IncomeProductTable\IPLCaption2Repository.cs" />
+    <Compile Include="Repository Interfaces\IncomeProductTable\ICaptionRepository.cs" />
+    <Compile Include="Repository Interfaces\IncomeProductTable\IIncomeProductTableRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IVolumeAnalysisRundatesRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IIncomeCustomerRatingOverrideTEMPRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeAccountPoolRateRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeCustomerPoolRateRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IMISNewOthersTEMPRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IMprInterestMappingRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IOneBankBranchRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IOneBankAORepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IFTPRiskRatingsRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IIncomeAccountMISOverrideTEMPRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IIncomeCommFeeBusinessRuleRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IIncomeCustomerRatingOverrideRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IIncomeAccountsListingRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IIncomeRetailProductOverrideTEMPRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IIncomeRetailProductOverrideRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IIncomeSplitPoolsRatesAndBasisRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IBalanceSheetBudgetOfficerRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IBalanceSheetBudgetRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IBalanceSheetThresholdRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IIncomeBranchesRepository.cs" />
+    <Compile Include="Repository Interfaces\IncomeProductTable\IGroupCaptionsRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeAcountsTreeAccountTEMPRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeAcountsTreeAccountRepositor.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeAcountsTreeMisCodesTEMPRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeCaptionPoolRateRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeFintrakAccountsSegmentRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeAccountsPartRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeAccountsNplRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeAccountsUnitRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeAcountsFintrakRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeAcountsTreeMisCodesRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\ITeamSegmentRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\ITeamSectorRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\ICustomerTransferPriceRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\INRFFCaptionRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IBSINOtherInformationTotalLineRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IBSINOtherInformationRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IBSCaptionRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IBSGLMappingRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IMPRBalanceSheetAdjustmentRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IMPRBalanceSheetRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IMPRProductRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\INonProductMapRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\INonProductRateRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IProductMISRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IFinstatMappingRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeCommFeeMisRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeCurrencyRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeMemorepRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeMisCodesRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomePoolRateSbuRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomePoolRateSbuYearRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeSplitPoolsRateRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IMPRReportStatusRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IDownloadBaseFintrakFinalManualRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeOtherBreakdownRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IOneBankRegionTDRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IOneBankTeamTableRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ITeamStructureALL.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexGLMappingRepository - Copy.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexUpdateRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ISlaryScheduleRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeSetupRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IIncomeCashVaultScheduleRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IAccount_interestRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IScoreCardMISMappingKBLRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IScoreCardSetMetricTargetKBLRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IScoreCardKPITypesKBLRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IScoreCardMappingRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IMISTransferPriceRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IProductTransferPriceRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IScoreCardMetricsKBLRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IScoreCardPerspective.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IScoreCardRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IScoreCardWeightRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ICaption_transfer_priceRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IAssetTypeRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ICrb_DataRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IProductInterestRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ICorporateAdjustmentRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ICustomermisRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IPPRRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IScoreCardMetricsRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IRiskAdjustedChargeRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IServiceseRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ITeamBank.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ITeamStructure.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IAcquirerSharingRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\IAcquirerMappingRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IIncomeProductShareRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexGLBasis2Repository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexBranchMappingRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ISbuTypeRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ISbuRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IAbcRatioRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IRatiosRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IRatioCaptionMappingRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IMessagingSubscriptionRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IAccountMISRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IAccountOfficerDetailRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IAccountTransferPriceRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IBranchDefaultMISRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IBSExemptionRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ICaptionMappingRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ICustAccountRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IGeneralTransferPriceRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IManagementTreeRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IMemoAccountMapRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IMemoGLMapRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IMemoProductMapRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IMemoUnitsRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IMISReplacementRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IMPRSetUpRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ISetUpRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IStaffsRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ITeamClassificationMapRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ITeamClassificationRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ITeamClassificationTypeRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ITeamDefinitionRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ITeamRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\ITransferPriceRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IUserClassificationMapRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_Core\IUserMISRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_BS\ICategoryTransferPriceRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IFixedAssetSharingRatioRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IHoExemptionMISCodeRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IActivityBaseRatioRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\ICheckListRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IActivityBaseRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\ICostCentreDefinitionRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\ICostCentreRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IExpenseBasisRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IExpenseGLMappingRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IExpenseMappingRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IExpenseProductMappingRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IExpenseRawBasisRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IIncomeCashCentreCodeRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IIncomeCentralVaultAccountsRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IIncomeNEAGLSBURepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\ILowCostRemapRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\INEABranchSBUSharesRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\INEABranchSharingRatioRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\INEASharingRatioFcyRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\INEASharingRatioRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexAbcExemptionRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexBasisMappingRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexBusinessRuleRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexGLBasisRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexGLMappingRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexMaintenanceRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexManagementTreeRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexMemounitPlmapRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexMemounitsRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexMISReplacementRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexRawExpenseRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexReportRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexSBUBaseCostRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexStaffcostDetailRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IOpexTimeAllocationMPRRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_OPEX\IStaffCostRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_PL\IGLExceptionRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_PL\IGLMISRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_PL\IGLReclassificationRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_PL\IMPRGLMappingRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_PL\IMPRPLDerivedCaptionRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_PL\IMPRTotalLineMakeUpRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_PL\IMPRTotalLineRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_PL\IPLCaptionRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_PL\IPLIncomeReportAdjustmentRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_PL\IPLIncomeReportRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_PL\IRevenueBudgetOfficerRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_PL\IProcessDataRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_PL\IRevenueBudgetRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_PL\IIncomeCentralVaultScheduleRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_PL\IMPRCommFeeRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_PL\IIncomeAdjustmentCommFeeSearchManualRepository.cs" />
+    <Compile Include="Repository Interfaces\MPR_PL\IRevenueRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\Fintrak.Shared.Common\Fintrak.Shared.Common.csproj">
+      <Project>{D188C9CA-C170-4496-8CAD-C6EEE1F3D7D8}</Project>
+      <Name>Fintrak.Shared.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\Fintrak.Shared.Core.Entities\Fintrak.Shared.Core.Entities.csproj">
+      <Project>{86D9D66B-C03B-4643-A9FB-99F96D0A52BC}</Project>
+      <Name>Fintrak.Shared.Core.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\Fintrak.Shared.MPR.Entities\Fintrak.Shared.MPR.Entities.csproj">
+      <Project>{412C25F1-EA5F-402C-B1F8-443767D21E85}</Project>
+      <Name>Fintrak.Shared.MPR.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\Fintrak.Shared.MPR.Framework\Fintrak.Shared.MPR.Framework.csproj">
+      <Project>{dff2e84e-8f0a-413e-ac5a-bc64adb43adc}</Project>
+      <Name>Fintrak.Shared.MPR.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

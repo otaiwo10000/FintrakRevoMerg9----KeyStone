@@ -1,0 +1,184 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div>
+        <a class="btn btn-info btn-xs" data-ui-sref="mpr-dimaudit-edit({dimaudit:0})"> Create New</a>
+    </div>-->
+
+            <div class="form-group col-sm-2">
+                <input type="text" class="form-control input-sm" data-ng-model="vm.searchvalue1" placeholder="Search" style="background-color: lightblue" />
+            </div>
+            <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.obuLoad()">Load Data</button>
+            <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.refreshOBU()">Referesh</button>
+
+            <br />
+
+            <table id="dimAuditTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Accountofficer Code</th>
+                        <th>Accountofficer Name</th>
+                        <th>Team_Code</th>
+                        <th>TeamName</th>
+                        <th>Branch_Code</th>
+                        <th>BranchName</th>
+                        <th>Group_Code</th>
+                        <th>GroupName</th>
+                        <th>Region_Code</th>
+                        <th>RegionName</th>
+                        <th>Division_Code</th>
+
+                        <th>DivisionName</th>
+                        <th>PPRCategory</th>
+                        <th>Year</th>
+                        <th>StaffID</th>
+                        <th>SegmentName</th>
+                        <th>Segment_Code</th>
+                        <th>SectorName</th>
+                        <th>Sector_Code</th>
+                        <th>IsRelationshipManager</th>
+                        <th>Zone_Code</th>
+                        <th>ZoneName</th>
+
+                        <th>Strategy_Code</th>
+                        <th>StrategyName</th>
+                        <th>branchcode</th>
+                        <th>SuperSegment_Code</th>
+                        <th>SuperSegmentName</th>
+
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="d in vm.teamAccessReads">
+                        <td>
+                            {{ d.Accountofficer_Code1}}
+                        </td>
+
+                        <td>
+                            {{ d.AccountofficerName1}}
+                        </td>
+
+                        <td>
+                            {{ d.Team_Code}}
+                        </td>
+
+                        <td>
+                            {{ d.TeamName}}
+                        </td>
+
+                        <td>
+                            {{ d.Branch_Code}}
+                        </td>
+
+                        <td>
+                            {{ d.BranchName}}
+                        </td>
+
+                        <td>
+                            {{ d.Group_Code}}
+                        </td>
+
+                        <td>
+                            {{ d.GroupName}}
+                        </td>
+
+                        <td>
+                            {{ d.Region_Code }}
+                        </td>
+
+                        <td>
+                            {{ d.RegionName}}
+                        </td>
+
+                        <td>
+                            {{ d.Division_Code }}
+                        </td>
+
+                        <td>
+                            {{ d.DivisionName}}
+                        </td>
+
+                        <td>
+                            {{ d.PPRCategory}}
+                        </td>
+
+                        <td>
+                            {{ d.Year}}
+                        </td>
+
+                        <td>
+                            {{ d.StaffID}}
+                        </td>
+
+                        <td>
+                            {{ d.SegmentName}}
+                        </td>
+
+                        <td>
+                            {{ d.Segment_Code}}
+                        </td>
+
+                        <td>
+                            {{ d.SectorName}}
+                        </td>
+
+                        <td>
+                            {{ d.Sector_Code}}
+                        </td>
+
+                        <td>
+                            {{ d.IsRelationshipManager }}
+                        </td>
+
+                        <td>
+                            {{ d.Zone_Code}}
+                        </td>
+
+                        <td>
+                            {{ d.ZoneName }}
+                        </td>
+
+                        <td>
+                            {{ d.Strategy_Code}}
+                        </td>
+
+                        <td>
+                            {{ d.StrategyName}}
+                        </td>
+
+                        <td>
+                            {{ d.branchcode }}
+                        </td>
+
+                        <td>
+                            {{ d.SuperSegment_Code}}
+                        </td>
+
+                        <td>
+                            {{ d.SuperSegmentName }}
+                        </td>
+
+                        <!--<td>
+        <a class="btn btn-orange btn-xs" data-ui-sref="mpr-abcratio-edit({abcratioId: abcRatio.AbcRatioId})">
+            Edit
+        </a>
+    </td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

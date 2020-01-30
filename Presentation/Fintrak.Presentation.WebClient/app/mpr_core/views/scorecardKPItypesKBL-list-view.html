@@ -1,0 +1,96 @@
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+
+            <form class="form-inline" >
+                <div class="form-group col-sm-2">
+                    <a class="btn btn-info btn-xs" data-ui-sref="mpr-scorecardKPItypesKBL-edit({ID:0})"> Create New</a>
+                </div>
+                <!--<div class="form-group col-sm-1">&nbsp</div>-->
+
+                <div class="form-group col-sm-1">
+                    <input type="number" class="form-control input-sm" data-ng-model="vm.period" placeholder="Period" style="background-color: lightblue" min="1" max="12" maxlength="2" minlength="2" />
+                </div>
+
+                <div class="form-group col-sm-1">
+                    <input type="number" class="form-control input-sm" data-ng-model="vm.year" placeholder="Year" style="background-color: lightblue" maxlength="4" minlength="4" min="2012" />
+                </div> <div class="form-group col-sm-1">&nbsp</div>
+
+                <div class="form-group col-sm-3">
+                    <!--KPI Type:  <select class="form-control" ng-model="vm.searchvalue" ng-options="i.value as i.name for i in vm.searchvalueList" style="width:250px;background-color:lightblue"></select>-->
+                     <input type="text" class="form-control input-sm" data-ng-model="vm.searchvalue" placeholder="KPI Type containing" style="background-color: lightblue" />
+                </div>
+
+                <!--<div class="form-group col-sm-2">
+                    KPI Type: <input type="text" class="form-control input-sm" data-ng-model="vm.searchvalue" placeholder="Search" style="background-color: lightblue" />
+                </div>-->
+
+                <button type="button" class="btn btn-default btn-sm" data-ng-click="vm.kpiLoad()">Load</button>
+                <button type="button" class="btn btn-info btn-xs" ng-click="vm.refreshKPI()">Refresh</button>
+
+            </form>
+
+
+            <table id="kpiTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th>KPI TYPE</th>
+                        <th>PERSPECTIVE</th>
+                        <th>KPI_METRIC</th>
+                        <th>KPI_WEIGHT</th>
+                        <th>Period</th>
+                        <th>Year</th>
+
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="c in vm.kpi">
+
+                        <td>
+                            {{ c.KPI_TYPE}}
+                        </td>
+                        <td>
+                            {{ c.PERSPECTIVE}}
+                        </td>
+                        <td>
+                            {{ c.KPI_METRIC}}
+                        </td>
+                        <td>
+                            {{ c.KPI_WEIGHT}}
+                        </td>
+                        <td>
+                            {{ c.Period}}
+                        </td>
+                        <td>
+                            {{ c.Year}}
+                        </td>
+
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-scorecardKPItypesKBL-edit({ID: c.ID})">
+                                Edit
+                            </a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

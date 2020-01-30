@@ -1,0 +1,65 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-opexsbubasecost-edit({ID:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="opexsbubasecostTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>MIS CODE</th>
+                        <th>AMOUNT</th>
+                        <th>TEMPLATE</th>
+                        <th>SOURCE</th>
+                        <th>SN</th>
+                        <th>TRANSTYPE</th>
+                       
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="o in vm.opexSBUBaseCost">
+                        <td>
+                            {{ o.MIS_CODE}}
+                        </td>
+                        <td>
+                            {{ o.AMOUNT}}
+                        </td>
+                        <td>
+                            {{ o.TEMPLATE}}
+                        </td>
+                        <td>
+                            {{ o.SOURCE}}
+                        </td>
+                        <td>
+                            {{ o.SN}}
+                        </td>
+                        <td>
+                            {{ o.TRANS_TYPE}}
+                        </td>
+                        
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-opexsbubasecost-edit({ID: o.ID})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

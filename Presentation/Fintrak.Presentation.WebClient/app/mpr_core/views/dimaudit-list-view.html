@@ -1,0 +1,100 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div>
+        <a class="btn btn-info btn-xs" data-ui-sref="mpr-dimaudit-edit({dimaudit:0})"> Create New</a>
+    </div>-->
+
+            <div class="form-group col-sm-2">
+                <input type="text" class="form-control input-sm" data-ng-model="vm.searchvalue1" placeholder="Search" style="background-color: lightblue" />
+            </div>
+            <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.obuLoad()">Load Data</button>
+            <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.refreshOBU()">Referesh</button>
+
+            <br />
+
+            <table id="dimAuditTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>TableName</th>
+                        <th>PkgName</th>
+                        <th>ExecStartDT</th>
+                        <th>ExecStopDT</th>
+                        <th>ExtractRowCnt</th>
+                        <th>InsertRowCnt</th>
+                        <th>UpdateRowCnt</th>
+                        <th>ErrorRowCnt</th>
+                        <th>TableInitialRowCnt</th>
+                        <th>TableFinalRowCnt</th>
+                        <th>SuccessfulProcessingInd</th>
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="d in vm.dimAudits">
+                        <td>
+                            {{ d.TableName}}
+                        </td>
+
+                        <td>
+                            {{ d.PkgName}}
+                        </td>
+
+                        <td>
+                            {{ d.ExecStartDT}}
+                        </td>
+
+                        <td>
+                            {{ d.ExecStopDT}}
+                        </td>
+
+                        <td>
+                            {{ d.ExtractRowCnt}}
+                        </td>
+
+                        <td>
+                            {{ d.InsertRowCnt}}
+                        </td>
+
+                        <td>
+                            {{ d.UpdateRowCnt}}
+                        </td>
+
+                        <td>
+                            {{ d.ErrorRowCnt}}
+                        </td>
+
+                        <td>
+                            {{ d.TableInitialRowCnt }}
+                        </td>
+
+                        <td>
+                            {{ d.TableFinalRowCnt}}
+                        </td>
+
+                        <td>
+                            {{ d.SuccessfulProcessingInd }}
+                        </td>
+                        <!--<td>
+                    <a class="btn btn-orange btn-xs" data-ui-sref="mpr-abcratio-edit({abcratioId: abcRatio.AbcRatioId})">
+                        Edit
+                    </a>
+                </td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-finstatmapping-edit({finstatmappingId:0})"> Create New</a>
+            </div>
+            <br />
+
+            <table id="finstatMappingTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>GLSH</th>
+                        <th>Description</th>
+                        <th>Main Caption</th>
+                        <th>SubCaption</th>
+                        <th>SubSubCaption</th>
+                        <th>Class</th>
+                        <th>RefNote</th>
+                        <th>Position</th>
+                        <th>PARENTGL</th>
+                        <th>SubPosition</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="finstatMapping in vm.finstatMappings">
+                        <td>
+                            {{ finstatMapping.GLSH}}
+                        </td>
+
+                        <td>
+                            {{ finstatMapping.Description}}
+                        </td>
+                        <td>
+                            {{ finstatMapping.MainCaption}}
+                        </td>
+
+                        <td>
+                            {{ finstatMapping.SubCaption}}
+                        </td>
+
+                        <td>
+                            {{ finstatMapping.SubSubCaption}}
+                        </td>
+
+                        <td>
+                            {{ finstatMapping.Class}}
+                        </td>
+
+                        <td>
+                            {{ finstatMapping.RefNote}}
+                        </td>
+
+                        <td>
+                            {{ finstatMapping.Position}}
+                        </td>
+
+                        <td>
+                            {{ finstatMapping.PARENTGL}}
+                        </td>
+
+                        <td>
+                            {{ finstatMapping.SubPosition}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-finstatmapping-edit({finstatmappingId: finstatMapping.FinstatMappingId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

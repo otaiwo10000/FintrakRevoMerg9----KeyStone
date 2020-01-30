@@ -1,0 +1,95 @@
+
+<br /> {{vm.resultString}}
+
+<div ng-repeat="g in vm.onboardingusers_2">{{g}}</div>
+<div ng-repeat="g in vm.onboardingusers_2">{{g.Id}}</div>
+{{vm.onboardingusers_2}}
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div>
+                <a class="btn btn-info btn-xs" data-ui-sref="core-staff-edit({staffId:0})"> Create New</a>
+            </div>
+            <br />-->
+
+            <table id="obuTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Check</th>
+
+                        <th>User Name</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+
+                        <th>StaffId</th>
+                        <th>Team Definition</th>
+                        <th>MISCode</th>
+                        <th>Status</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="o in vm.onboardingusers">
+
+                        <td>
+                            <input type="checkbox"
+                                   value="{{o.Id}}"
+                                   ng-checked="selection.indexOf(o.Id) > -1"
+                                   ng-click="toggleSelection(o.Id)" /> {{o.Id}}
+                        </td>
+
+                        <td>
+                            {{o.UserName}}
+                        </td>
+                        <td>
+                            {{o.FirstName}}
+                        </td>
+                        <td>
+                            {{o.LastName}}
+                        </td>
+                        <td>
+                            {{o.Email}}
+                        </td>
+
+                        <td>
+                            {{o.StaffId}}
+                        </td>
+                        <td>
+                            {{o.TeamDefinitionCode}}
+                        </td>
+                        <td>
+                            {{o.MISCode}}
+                        </td>
+                        <td>
+                            {{o.Status}}
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="form-group mbn">
+                <label class="col-sm-3 control-label"></label>
+                <div class="col-sm-9 controls">
+                    <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.decline()">Decline</button>
+                    <button type="button" class="btn btn-success btn-xs" ng-click="vm.approve()">
+                        <i class="fa fa-save"></i>&nbsp;
+                        Approve
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

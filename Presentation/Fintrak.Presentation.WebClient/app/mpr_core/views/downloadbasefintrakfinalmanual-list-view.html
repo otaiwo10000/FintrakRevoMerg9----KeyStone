@@ -1,0 +1,205 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div>
+        <a class="btn btn-info btn-xs" data-ui-sref="mpr-downloadbasefintrakfinalmanual-edit({ID:0})"> Create New</a>
+    </div>-->
+
+            <div class="form-group col-sm-10">
+                <div class="form-group col-sm-3">
+                    Year <select ng-model="vm.year" class="form-control input-sm" ng-options="t.value as t.name for t in vm.yearList" style="background-color: lightblue"></select>
+                </div>
+                <div class="form-group col-sm-3">
+                    Period <select ng-model="vm.period" class="form-control input-sm" ng-options="t.value as t.name for t in vm.periodList" style="background-color: lightblue"></select>
+                </div>
+                <div class="form-group col-sm-5">
+                   AcctNo/CustName/MISCode/Caption <input ng-model="vm.search" class="form-control input-sm" style="background-color: lightblue"/>
+                </div>
+                <div class="form-group col-sm-1">
+                    <button type="button" class="btn btn-default" ng-click="vm.ddbffmLoad()">Load</button>
+                </div>
+            </div>
+
+            <br />
+
+            <table id="ddbffmTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Account Number</th>
+                        <th>customer name</th>
+                        <th>sbuCode</th>
+                        <th>MIS Code</th>
+                        <th>Account Officer Oode</th>
+                        <th>Account Officer</th>
+
+                        <th>Actual Balance</th>
+                        <th>Average Balance</th>
+                        <th>RevExp</th>
+                        <th>Interest Rate</th>
+                        <th>Product Code</th>
+                        <th>Category</th>
+
+                        <th>Currency Type</th>
+                        <th>Posted Date</th>
+                        <th>Period</th>
+                        <th>Year</th>
+                        <th>Entry Status</th>
+                        <th>GL Sub</th>
+
+                        <th>Refno</th>
+                        <th>Pool Rate</th>
+                        <th>Bank Max Rate</th>
+                        <th>Customer Rating</th>
+                        <th>EffYield</th>
+                        <th>Penal Rate</th>
+
+                        <th>Penal Charge</th>
+                        <th>ExpRev</th>
+                        <th>Caption</th>
+                        <th>Category Filter</th>
+                        <th>Branch</th>
+                        <th>Share Ratio</th>
+
+                        <th>Indicator</th>
+                        <th>Entry Date</th>
+                        <th>Currency Code</th>
+
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="d in vm.ddbffm">
+                        <td>
+                            {{ d.AccountNumber}}
+                        </td>
+                        <td>
+                            {{ d.customername}}
+                        </td>
+                        <td>
+                            {{ d.sbuCode}}
+                        </td>
+                        <td>
+                            {{ d.MIS_Code}}
+                        </td>
+                        <td>
+                            {{ d.accountofficercode}}
+                        </td>
+                        <td>
+                            {{ d.accountofficer}}
+                        </td>
+
+
+                        <td>
+                            {{ d.ActualBalance}}
+                        </td>
+                        <td>
+                            {{ d.AverageBalance}}
+                        </td>
+                        <td>
+                            {{ d.RevExp}}
+                        </td>
+                        <td>
+                            {{ d.interestRate}}
+                        </td>
+                        <td>
+                            {{ d.ProductCode}}
+                        </td>
+                        <td>
+                            {{ d.Category}}
+                        </td>
+
+
+                        <td>
+                            {{ d.Currency_Type}}
+                        </td>
+                        <td>
+                            {{ d.postedDate}}
+                        </td>
+                        <td>
+                            {{ d.Period}}
+                        </td>
+                        <td>
+                            {{ d.Year}}
+                        </td>
+                        <td>
+                            {{ d.EntryStatus}}
+                        </td>
+                        <td>
+                            {{ d.GL_Sub}}
+                        </td>
+
+
+                        <td>
+                            {{ d.Refno}}
+                        </td>
+                        <td>
+                            {{ d.PoolRate}}
+                        </td>
+                        <td>
+                            {{ d.BankMaxRate}}
+                        </td>
+                        <td>
+                            {{ d.CustomerRating}}
+                        </td>
+                        <td>
+                            {{ d.EffYield}}
+                        </td>
+                        <td>
+                            {{ d.PenalRate}}
+                        </td>
+
+
+                        <td>
+                            {{ d.PenalCharge}}
+                        </td>
+                        <td>
+                            {{ d.ExpRev}}
+                        </td>
+                        <td>
+                            {{ d.Caption}}
+                        </td>
+                        <td>
+                            {{ d.Category_Filter}}
+                        </td>
+                        <td>
+                            {{ d.Branch}}
+                        </td>
+                        <td>
+                            {{ d.Share_Ratio}}
+                        </td>
+
+
+                        <td>
+                            {{ d.Indicator}}
+                        </td>
+                        <td>
+                            {{ d.Entry_Date}}
+                        </td>
+                        <td>
+                            {{ d.Currency_Code}}
+                        </td>
+
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-downloadbasefintrakfinalmanual-edit({ID: d.ID})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

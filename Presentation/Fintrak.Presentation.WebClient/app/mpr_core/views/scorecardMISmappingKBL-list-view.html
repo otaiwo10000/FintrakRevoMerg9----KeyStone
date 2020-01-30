@@ -1,0 +1,58 @@
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+
+            <div class="form-group col-sm-2">
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-scorecardMISmappingKBL-edit({ID:0})"> Create New</a>
+            </div>
+
+            <table id="scmTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>MIS</th>
+                        <th>KPI Type</th>
+                        <th>Period</th>
+                        <th>Year</th>
+
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="c in vm.scm">
+
+                        <td>
+                            {{ c.MIS}}
+                        </td>
+                        <td>
+                            {{ c.KPI_TYPE}}
+                        </td>
+                        <td>
+                            {{ c.Period}}
+                        </td>
+                        <td>
+                            {{ c.Year}}
+                        </td>
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-scorecardMISmappingKBL-edit({ID: c.ID})">
+                                Edit
+                            </a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

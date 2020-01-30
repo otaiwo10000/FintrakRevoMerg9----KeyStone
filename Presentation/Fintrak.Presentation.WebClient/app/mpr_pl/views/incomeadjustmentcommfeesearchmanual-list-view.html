@@ -1,0 +1,161 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="form-group col-sm-7">
+                <div class="form-group col-sm-3">
+                    Year <select ng-model="vm.year" class="form-control input-sm" ng-options="t.value as t.name for t in vm.yearList" style="background-color: lightblue"></select>
+                </div>
+                <div class="form-group col-sm-3">
+                    Period <select ng-model="vm.period" class="form-control input-sm" ng-options="t.value as t.name for t in vm.periodList" style="background-color: lightblue"></select>
+                </div>
+                <div class="form-group col-sm-3">
+                    Period <select ng-model="vm.search" class="form-control input-sm" style="background-color: lightblue"></select>
+                </div>
+
+                <div class="form-group col-sm-1">
+                    <button type="button" class="btn btn-default" ng-click="vm.reLoad()">Load</button>
+                </div>
+            </div>
+
+            <br />
+
+
+            <table id="cfTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>MIS_Code</th>
+                        <th>BranchCode</th>
+                        <th>Inc_Exp</th>
+                        <th>Amount</th>
+                        <th>CurrencyType</th>
+                        <th>GL_Code</th>
+                        <th>RelatedAccount</th>
+                        <th>Narrative</th>
+                        <th>Period</th>
+                        <th>Year</th>
+                        <th>CustomerCode</th>
+                        <th>AccountOfficer_Code</th>
+                        <th>CustomerName</th>
+                        <th>P_Date</th>
+                        <th>Caption</th>
+
+                        <th>Tran_ID</th>
+                        <th>Tran_Date</th>
+                        <th>GLName</th>
+                        <th>EntryStatus</th>
+                        <th>GLNameGroupCaption</th>
+                        <th>Entry_Date</th>
+                        <th>UserName_EntryMade</th>
+                        <th>sub_head_gl_code</th>
+                        <th>ProductCode</th>
+
+
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="n in vm.cfList">
+                        <td>
+                            {{n.MIS_Code}}
+                        </td>
+                        <!--<td>
+                    {{revenue.TransDate | date:'dd-MM-yyyy'}}
+                </td>-->
+                        <td>
+                            {{n.BranchCode}}
+                        </td>
+                        <td>
+                            {{n.Inc_Exp}}
+                        </td>
+                        <td>
+                            {{n.Amount}}
+                        </td>
+                        <td>
+                            {{n.CurrencyType}}
+                        </td>
+                        <td>
+                            {{n.GL_Code}}
+                        </td>
+
+                        <td>
+                            {{n.RelatedAccount}}
+                        </td>
+                        <td>
+                            {{n.Narrative}}
+                        </td>
+                        <td>
+                            {{n.Period}}
+                        </td>
+                        <td>
+                            {{n.Year}}
+                        </td>
+                        <td>
+                            {{n.CustomerCode}}
+                        </td>
+                        <td>
+                            {{n.AccountOfficer_Code}}
+                        </td>
+                        <td>
+                            {{n.CustomerName}}
+                        </td>
+                        <td>
+                            {{n.P_Date}}
+                        </td>
+                        <td>
+                            {{n.Caption}}
+                        </td>
+
+                        <td>
+                            {{n.Tran_ID}}
+                        </td>
+                        <td>
+                            {{n.Tran_Date}}
+                        </td>
+                        <td>
+                            {{n.GLName}}
+                        </td>
+                        <td>
+                            {{n.EntryStatus}}
+                        </td>
+                        <td>
+                            {{n.GLNameGroupCaption}}
+                        </td>
+                        <td>
+                            {{n.Entry_Date}}
+                        </td>
+                        <td>
+                            {{n.UserName_EntryMade}}
+                        </td>
+                        <td>
+                            {{n.sub_head_gl_code}}
+                        </td>
+                        <td>
+                            {{n.ProductCode}}
+                        </td>
+
+
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-incomeadjustmentcommfeesearchmanual-edit({ID: n.ID})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

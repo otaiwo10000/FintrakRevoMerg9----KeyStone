@@ -1,0 +1,118 @@
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+
+            <form class="form-inline">
+                <!--<div class="form-group col-sm-2">
+        <a class="btn btn-info btn-xs" data-ui-sref="mpr-scorecardmetricsKBL-edit({MetricID:0})"> Create New</a>
+    </div>
+    <div class="form-group col-sm-1">&nbsp</div>
+
+    <div class="form-group col-sm-2">
+        Year: <input type="number" class="form-control input-sm" data-ng-model="vm.year" placeholder="Year" style="background-color: lightblue" maxlength="4" minlength="4" min="2012" />
+    </div>-->
+                <!--<div class="form-group col-sm-2">
+        <input type="text" class="form-control input-sm" data-ng-model="vm.searchvalue" placeholder="Search" style="background-color: lightblue" />
+    </div>-->
+
+
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-scorecardmetricsKBL-edit({MetricID:0})"> Create New</a>
+                <div class="form-group col-sm-1">&nbsp</div>
+
+                Year: <input type="number" class="form-control input-sm" data-ng-model="vm.year" placeholder="Year" style="background-color: lightblue" maxlength="4" minlength="4" min="2012" />
+
+                <button type="button" class="btn btn-default btn-sm" data-ng-click="vm.scmLoad()">Load</button>
+                <button type="button" class="btn btn-info btn-xs" ng-click="vm.refreshSCM()">Refresh</button>
+
+            </form>
+
+
+            <table id="scmTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th>Metric Description</th>
+                        <th>Metric</th>
+                        <th>Actual</th>
+                        <th>Budget</th>
+                        <th>TargetIsPreviousYear</th>
+
+                        <th>TargetOverActual</th>
+                        <th>Divisior</th>
+                        <th>Position</th>
+                        <th>Year</th>
+                        <th>SetToZeroIfNoBudget</th>
+                        <th>YTDAction</th>
+                        <th>SetToZeroIfNegativeActual</th>
+
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="c in vm.scm">
+
+                        <td>
+                            {{ c.Metric_Description}}
+                        </td>
+                        <td>
+                            {{ c.Metric}}
+                        </td>
+                        <td>
+                            {{ c.Actual}}
+                        </td>
+                        <td>
+                            {{ c.Budget}}
+                        </td>
+                        <td>
+                            {{ c.TargetIsPreviousYear}}
+                        </td>
+
+
+                        <td>
+                            {{ c.TargetOverActual}}
+                        </td>
+                        <td>
+                            {{ c.Divisior}}
+                        </td>
+                        <td>
+                            {{ c.Position}}
+                        </td>
+                        <td>
+                            {{ c.Year}}
+                        </td>
+                        <td>
+                            {{ c.SetToZeroIfNoBudget}}
+                        </td>
+                        <td>
+                            {{ c.YTDAction}}
+                        </td>
+                        <td>
+                            {{ c.SetToZeroIfNegativeActual}}
+                        </td>
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-scorecardmetricsKBL-edit({MetricID: c.MetricID})">
+                                Edit
+                            </a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

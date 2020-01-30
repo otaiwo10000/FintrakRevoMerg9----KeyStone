@@ -1,0 +1,84 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-incomeaccountsfintrak-edit({ID:0})"> Create New</a>
+            </div>
+            <br />
+
+            <table id="incomeAccountsFintrakTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Account Number</th>
+                        <th>Customer Name</th>
+                        <th>Mis Code</th>
+                        <th>Account Officer Code</th>
+                        <th>Old Mis Code</th>
+                        <th>Old Account Officer Code</th>
+                        <th>Expiration Period</th>
+                        <th>Comment</th>
+                        <th>Expiration Year</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="incomeAccountsFintrak in vm.incomeAccountsFintraks">
+                        <td>
+                            {{ incomeAccountsFintrak.AccountNumber}}
+                        </td>
+
+                        <td>
+                            {{ incomeAccountsFintrak.CustomerName}}
+                        </td>
+
+                        <td>
+                            {{ incomeAccountsFintrak.MIS_Code}}
+                        </td>
+
+                        <td>
+                            {{ incomeAccountsFintrak.AccountOfficer_Code}}
+                        </td>
+
+                        <td>
+                            {{ incomeAccountsFintrak.OldMIS_Code}}
+                        </td>
+
+                        <td>
+                            {{ incomeAccountsFintrak.OldAccountOfficer_Code}}
+                        </td>
+
+                        <td>
+                            {{ incomeAccountsFintrak.ExpirationPeriod}}
+                        </td>
+
+                        <td>
+                            {{ incomeAccountsFintrak.Comments}}
+                        </td>
+
+                        <td>
+                            {{ incomeAccountsFintrak.ExpirationYear}}
+                        </td>
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-incomeaccountsfintrak-edit({ID: incomeAccountsFintrak.ID})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

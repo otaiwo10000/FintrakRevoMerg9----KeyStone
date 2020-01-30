@@ -1,0 +1,153 @@
+﻿<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+               
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i>MPR ScoreCard Metrics</a></li>
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <!--<div class="col-md-7">-->
+                                <div class="col-md-7">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+                                                <div data-ng-include="'app/common/views/validation-view.html'"></div>
+
+
+                                                <!--<div class="form-group col-sm-12">
+        <label class="control-label col-sm-3">Product</label>
+        <select class="form-control col-sm-5" ng-model="vm.ProductCode" ng-options="product.Code as product.Name for product in vm.products" style="background-color: lightblue"></select>
+    </div>-->
+                                                <!--<div class="form-group col-sm-1">&nbsp</div>-->
+
+
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-3">Metric</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.scm.Metric" style="background-color: lightblue" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-3">Description</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.scm.Metric_Description" style="background-color: lightblue" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-3">Actual</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.scm.Actual" ng-options="caption for caption in vm.bsotherinformation" style="background-color: lightblue"></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-3">Budget</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control col-sm-5" ng-model="vm.scm.Budget" ng-options="caption for caption in vm.bsotherinformation" style="background-color: lightblue"></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-3">Divisior</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.scm.Divisior" style="background-color: lightblue" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-3">Position</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.scm.Position" style="background-color: lightblue" min="0" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-3">Year</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.scm.Year" style="background-color: lightblue" maxlength="4" minlength="4" min="0" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-3">YTDAction</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.scm.YTDAction" style="background-color: lightblue" />
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group" style="min-width:150%;">
+                                                    <!--<label class="col-sm-3 control-label"></label>-->
+                                                    <div class="checkbox-list">
+                                                        <label class="checkbox-inline">
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <input type="checkbox" ng-model="vm.scm.SetToZeroIfNoBudget" />&nbsp;
+                                                            SetToZeroIfNoBudget
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <input type="checkbox" ng-model="vm.scm.TargetIsPreviousYear" />&nbsp;
+                                                            TargetIsPreviousYear
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <input type="checkbox" ng-model="vm.scm.TargetOverActual" />&nbsp;
+                                                            TargetOverActual
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <input type="checkbox" ng-model="vm.scm.SetToZeroIfNegativeActual" />&nbsp;
+                                                            SetToZeroIfNegativeActual
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group mbn">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="col-sm-9 controls">
+                                                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.save()">
+                                                            <i class="fa fa-save"></i>&nbsp;
+                                                            Save
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.delete()">Delete</button>
+                                                        <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel()">Cancel</button>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{41806568-A3F7-4492-BDE9-024F51CD8E51}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fintrak.Shared.Basic.Entities</RootNamespace>
+    <AssemblyName>Fintrak.Shared.Basic.Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Financial Instrument\FairValueBasisExemption.cs" />
+    <Compile Include="Financial Instrument\FairValueBasisMap.cs" />
+    <Compile Include="Finstat_Core\IFRSMapping.cs" />
+    <Compile Include="IFRS Loans\IndividualImpairment.cs" />
+    <Compile Include="IFRS Loans\LoanIRRData.cs" />
+    <Compile Include="IFRS Loans\LoanDetails.cs" />
+    <Compile Include="IFRS Loans\IntegralFee.cs" />
+    <Compile Include="IFRS Loans\LoanPrimaryData.cs" />
+    <Compile Include="IFRS Loans\IndividualSchedule.cs" />
+    <Compile Include="IFRS Loans\TBillsComputationResult.cs" />
+    <Compile Include="IFRS Loans\LoansImpairmentResult.cs" />
+    <Compile Include="IFRS Loans\LoanSchedule.cs" />
+    <Compile Include="IFRS Loans\LoanPeriodicSchedule.cs" />
+    <Compile Include="IFRS Loans\EquityStockComputationResult.cs" />
+    <Compile Include="IFRS Loans\BondPeriodicSchedule.cs" />
+    <Compile Include="IFRS Loans\BondComputationResultZero.cs" />
+    <Compile Include="IFRS Loans\CollateralCategory.cs" />
+    <Compile Include="IFRS Loans\CollateralInformation.cs" />
+    <Compile Include="IFRS Loans\CollateralRealizationPeriod.cs" />
+    <Compile Include="IFRS Loans\BondComputation.cs" />
+    <Compile Include="IFRS Loans\CollateralType.cs" />
+    <Compile Include="IFRS Loans\CreditRiskRating.cs" />
+    <Compile Include="IFRS Loans\ImpairmentOverride.cs" />
+    <Compile Include="IFRS Loans\LoanSetup.cs" />
+    <Compile Include="IFRS Loans\Product.cs" />
+    <Compile Include="IFRS Loans\ScheduleType.cs" />
+    <Compile Include="IFRS Loans\WatchListedLoan.cs" />
+    <Compile Include="IFRS_Core\IFRSRegistry.cs" />
+    <Compile Include="Finstat_Core\IFRSBudget.cs" />
+    <Compile Include="Finstat_Core\TransactionDetail.cs" />
+    <Compile Include="Finstat_Core\IFRSReport.cs" />
+    <Compile Include="Finstat_Core\PostingDetail.cs" />
+    <Compile Include="Finstat_Core\GLAdjustment.cs" />
+    <Compile Include="Finstat_Core\TrialBalance.cs" />
+    <Compile Include="Finstat_Core\TrialBalanceGap.cs" />
+    <Compile Include="Finstat_Core\InstrumentTypeGLMap.cs" />
+    <Compile Include="Finstat_Core\InstrumentType.cs" />
+    <Compile Include="Finstat_Core\GLType.cs" />
+    <Compile Include="Finstat_Core\GLMapping.cs" />
+    <Compile Include="Finstat_Core\AutoPostingTemplate.cs" />
+    <Compile Include="IFRS_Core\DerivedCaption.cs" />
+    <Compile Include="MPR_BS\BSGLMapping.cs" />
+    <Compile Include="MPR_Core\MemoGLMap.cs" />
+    <Compile Include="MPR_Core\MemoProductMap.cs" />
+    <Compile Include="MPR_Core\MemoAccountMap.cs" />
+    <Compile Include="MPR_Core\MemoUnit.cs" />
+    <Compile Include="MPR_Core\BSExemption.cs" />
+    <Compile Include="MPR_Core\CustAccount.cs" />
+    <Compile Include="MPR_Core\UserMIS.cs" />
+    <Compile Include="MPR_OPEX\OpexCheckList.cs" />
+    <Compile Include="MPR_OPEX\OpexGLBasis.cs" />
+    <Compile Include="MPR_OPEX\OpexBasisMapping.cs" />
+    <Compile Include="MPR_OPEX\OpexReport.cs" />
+    <Compile Include="MPR_OPEX\ExpenseMapping.cs" />
+    <Compile Include="MPR_OPEX\OpexGLMapping.cs" />
+    <Compile Include="MPR_PL\GLRevenueShare.cs" />
+    <Compile Include="MPR_PL\MPRPLDerivedCaption.cs" />
+    <Compile Include="MPR_PL\PLIncomeReportAdjustment.cs" />
+    <Compile Include="MPR_PL\PLIncomeReport.cs" />
+    <Compile Include="MPR_PL\Revenue.cs" />
+    <Compile Include="MPR_PL\RevenueBudgetOfficer.cs" />
+    <Compile Include="MPR_PL\RevenueBudget.cs" />
+    <Compile Include="MPR_BS\BalanceSheetBudgetOfficer.cs" />
+    <Compile Include="MPR_BS\BalanceSheetThreshold.cs" />
+    <Compile Include="MPR_BS\BalanceSheetBudget.cs" />
+    <Compile Include="MPR_BS\MPRBalanceSheet.cs" />
+    <Compile Include="MPR_BS\MPRBalanceSheetAdjustment.cs" />
+    <Compile Include="MPR_Core\GeneralTransferPrice.cs" />
+    <Compile Include="MPR_Core\TransferPrice.cs" />
+    <Compile Include="MPR_Core\AccountTransferPrice.cs" />
+    <Compile Include="MPR_BS\BSCaption.cs" />
+    <Compile Include="MPR_BS\NonProductMap.cs" />
+    <Compile Include="MPR_BS\NonProductRate.cs" />
+    <Compile Include="MPR_BS\MPRProduct.cs" />
+    <Compile Include="MPR_BS\ProductMIS.cs" />
+    <Compile Include="MPR_Core\AccountOfficerDetail.cs" />
+    <Compile Include="MPR_Core\TeamClassificationMap.cs" />
+    <Compile Include="MPR_Core\TeamDefinition.cs" />
+    <Compile Include="MPR_Core\TeamClassificationType.cs" />
+    <Compile Include="MPR_Core\TeamClassification.cs" />
+    <Compile Include="MPR_Core\Team.cs" />
+    <Compile Include="MPR_Core\SetUp.cs" />
+    <Compile Include="MPR_Core\MISReplacement.cs" />
+    <Compile Include="MPR_Core\ManagementTree.cs" />
+    <Compile Include="MPR_Core\AccountMIS.cs" />
+    <Compile Include="MPR_Core\BranchDefaultMIS.cs" />
+    <Compile Include="MPR_OPEX\OpexAbcExemption.cs" />
+    <Compile Include="MPR_OPEX\OpexRawExpense.cs" />
+    <Compile Include="MPR_OPEX\OpexBusinessRule.cs" />
+    <Compile Include="MPR_OPEX\ActivityBaseRatio.cs" />
+    <Compile Include="MPR_OPEX\ActivityBase.cs" />
+    <Compile Include="MPR_OPEX\OpexMISReplacement.cs" />
+    <Compile Include="MPR_OPEX\Opex_Management_Tree.cs" />
+    <Compile Include="MPR_OPEX\StaffCost.cs" />
+    <Compile Include="MPR_OPEX\ExpenseRawBasis.cs" />
+    <Compile Include="MPR_OPEX\ExpenseProductMapping.cs" />
+    <Compile Include="MPR_OPEX\ExpenseGLMapping.cs" />
+    <Compile Include="MPR_OPEX\ExpenseBasis.cs" />
+    <Compile Include="MPR_OPEX\CostCentreDefinition.cs" />
+    <Compile Include="MPR_OPEX\CostCentre.cs" />
+    <Compile Include="MPR_PL\GLReclassification.cs" />
+    <Compile Include="MPR_PL\MPRGLMapping.cs" />
+    <Compile Include="MPR_PL\GLException.cs" />
+    <Compile Include="MPR_PL\MPRTotalLineMakeup.cs" />
+    <Compile Include="MPR_PL\MPRTotalLine.cs" />
+    <Compile Include="MPR_PL\PLCaption.cs" />
+    <Compile Include="MPR_PL\GLMIS.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fintrak.Shared.Basic.Framework\Fintrak.Shared.Basic.Framework.csproj">
+      <Project>{ab5b536a-8d6d-4531-98ba-7a6171d7b096}</Project>
+      <Name>Fintrak.Shared.Basic.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fintrak.Shared.Common\Fintrak.Shared.Common.csproj">
+      <Project>{D188C9CA-C170-4496-8CAD-C6EEE1F3D7D8}</Project>
+      <Name>Fintrak.Shared.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fintrak.Shared.Core.Entities\Fintrak.Shared.Core.Entities.csproj">
+      <Project>{86d9d66b-c03b-4643-a9fb-99f96d0a52bc}</Project>
+      <Name>Fintrak.Shared.Core.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fintrak.Shared.Core.Framework\Fintrak.Shared.Core.Framework.csproj">
+      <Project>{36c91371-851e-4720-9eb4-53481a50d8c2}</Project>
+      <Name>Fintrak.Shared.Core.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

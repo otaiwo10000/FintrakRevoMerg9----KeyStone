@@ -1,0 +1,88 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div>
+                <label for="" class="control-label">Classification:</label>
+                <select class="input-sm" ng-model="vm.classification" ng-options="classification.Name as classification.Name for classification in vm.classifications" style="width:250px;"></select>
+                <button type="button" class="btn btn-default btn-sm" ng-click="vm.getClassification()">Load</button>
+
+                <label for="" class="control-label">Maturity Date :</label>                
+                <select class="input-sm" ng-model="vm.MaturityDate" ng-options="maturitydates.MaturityDate as maturitydates.MaturityDate for maturitydates in vm.distinctMaturityDate" style="width:150px;" | date></select>
+             
+                <button class="btn btn-info btn-sm" ng-click="vm.getTbillbyMatDate()"> Load</button>    
+
+                <label for="" class="control-label">Current Market Yield :</label>
+                <input type="text" class="input-sm" data-ng-model="vm.ifrsTbill.CurrentMarketYield" style="width:150px" />
+                <button class="btn btn-info btn-sm" ng-click="vm.updateTbillsbyMatDate()"> Update</button>
+                <button type="button" ng-csv="vm.ifrsTbills" filename="IfrsTbillExport.csv">Full Export</button>
+            </div> 
+            <br />
+            
+            <table id="ifrsTbillTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>   
+                        <th>Description</th>   
+                        <th>Classification</th>  
+                        <th>Effective Date</th>  
+                        <th>Maturity Date</th>  
+                        <th>CleanPrice</th>  
+                        <th>FaceValue</th>  
+                        <th>Interest Rate</th>  
+                        <th>Market Yield</th>  
+                        <th style="width: 3%;">Action</th>        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="ifrsTbill in vm.ifrsTbills">
+                        <td>
+                            {{ ifrsTbill.RefNo}}
+                        </td>   
+                        <td>
+                            {{ ifrsTbill.Description}}
+                        </td>  
+                        <td>
+                            {{ ifrsTbill.Classification}}
+                        </td> 
+                        <td>
+                            {{ ifrsTbill.EffectiveDate | date }}
+                        </td>  
+                        <td>
+                            {{ ifrsTbill.MaturityDate | date}}
+                        </td>  
+                        <td>
+                            {{ ifrsTbill.CleanPrice | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ ifrsTbill.FaceValue | currency :"":0}}
+                        </td>  
+                        <td>
+                            {{ ifrsTbill.InterestRate}}
+                        </td>
+                        <td>
+                            {{ ifrsTbill.CurrentMarketYield}}
+                        </td>
+                 
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-tbills-edit({tbillId: ifrsTbill.TbillId})">
+                                Edit
+                            </a>
+                        </td>
+                                                            
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

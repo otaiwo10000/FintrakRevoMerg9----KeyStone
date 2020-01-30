@@ -1,0 +1,273 @@
+
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+
+            <!--================= Awaiting  starts ======================================================-->
+
+            <button class="btn btn-primary btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.toggleReportPage()">{{vm.toggleText}}</button>
+            
+            <div id="awaiting">
+                <div class="form-group col-sm-2">
+                    <input type="text" class="form-control input-sm" data-ng-model="vm.searchvalue1" placeholder="Search" style="background-color: lightblue" />
+                </div>
+                <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.obuLoad()">Load Data</button>
+                <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.refreshOBU()">Referesh</button>
+                <div class="col-sm-12">
+                    <button class="btn btn-default btn-xs col-xs-1" style="margin-left:1%;" ng-click="vm.IncomeOtherBreakdownAllCheckBoxes()">{{vm.toggleTextIncomeOtherBreakdown}}</button>
+                </div>
+                <table id="obuTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                    <thead>
+                        <tr>
+                            <th>Check</th>
+
+                            <th>MIS_Code</th>
+                            <th>Caption</th>
+                            <th>Accountnumber</th>
+                            <th>Narrative</th>
+
+                            <th>CustomerName</th>
+                            <th>Period</th>
+                            <th>Year</th>
+                            <th>Amount</th>
+
+                            <th>AccountOfficer_Code</th>
+                            <th>ProductCode</th>
+                            <th>RunDate</th>
+                            <th>ApprovalStatus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="o in vm.awaitingstatus">
+
+                            <td>
+                                <input type="checkbox"
+                                       value="{{o.ID}}"
+                                       ng-checked="vm.selectionoverride.indexOf(o.ID) > -1"
+                                       ng-click="vm.toggleSelectionOverride(o.ID)" />
+                            </td>
+
+                            <td>
+                                {{o.MIS_Code}}
+                            </td>
+                            <td>
+                                {{o.Caption}}
+                            </td>
+                            <td>
+                                {{o.Accountnumber}}
+                            </td>
+                            <td>
+                                {{o.Narrative}}
+                            </td>
+
+                            <td>
+                                {{o.CustomerName}}
+                            </td>
+                            <td>
+                                {{o.Period}}
+                            </td>
+                            <td>
+                                {{o.Year}}
+                            </td>
+                            <td>
+                                {{o.Amount}}
+                            </td>
+
+                            <td>
+                                {{o.AccountOfficer_Code}}
+                            </td>
+                            <td>
+                                {{o.ProductCode}}
+                            </td>
+                            <td>
+                                {{o.RunDate}}
+                            </td>
+                            <td>
+                                {{o.ApprovalStatus}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="form-group mbn">
+                    <label class="col-sm-3 control-label"></label>
+                    <div class="col-sm-9 controls">
+                        <button type="button" class="btn btn-danger btn-xs" ng-click="vm.decline()">Decline</button>
+                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.approve()">
+                            <i class="fa fa-save"></i>&nbsp;
+                            Approve
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <hr style="width:100%" />
+            <!--================= Awaiting  ends ======================================================-->
+            <!--================= Approved  starts ======================================================-->
+
+            <button class="btn btn-primary btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.toggleReportPage2()">{{vm.toggleText2}}</button>
+            <div id="approved">
+                <div class="form-group col-sm-2">
+                    <input type="text" class="form-control input-sm" data-ng-model="vm.searchvalue2" placeholder="Search" style="background-color: lightblue" />
+                </div>
+                <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.obuLoad2()">Load Data</button>
+                <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.refreshOBU2()">Referesh</button>
+                <table id="obu2Table" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                    <thead>
+                        <tr>
+                            <th>MIS_Code</th>
+                            <th>Caption</th>
+                            <th>Accountnumber</th>
+                            <th>Narrative</th>
+
+                            <th>CustomerName</th>
+                            <th>Period</th>
+                            <th>Year</th>
+                            <th>Amount</th>
+
+                            <th>AccountOfficer_Code</th>
+                            <th>ProductCode</th>
+                            <th>RunDate</th>
+                            <th>ApprovalStatus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="o in vm.approvedstatus">
+
+                            <td>
+                                {{o.MIS_Code}}
+                            </td>
+                            <td>
+                                {{o.Caption}}
+                            </td>
+                            <td>
+                                {{o.Accountnumber}}
+                            </td>
+                            <td>
+                                {{o.Narrative}}
+                            </td>
+
+                            <td>
+                                {{o.CustomerName}}
+                            </td>
+                            <td>
+                                {{o.Period}}
+                            </td>
+                            <td>
+                                {{o.Year}}
+                            </td>
+                            <td>
+                                {{o.Amount}}
+                            </td>
+
+                            <td>
+                                {{o.AccountOfficer_Code}}
+                            </td>
+                            <td>
+                                {{o.ProductCode}}
+                            </td>
+                            <td>
+                                {{o.RunDate}}
+                            </td>
+                            <td>
+                                {{o.ApprovalStatus}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr style="width:100%" />
+            <!--================= Approved ends =========================================================-->
+            <!--================= Declined  starts ======================================================-->
+
+            <button class="btn btn-primary btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.toggleReportPage3()">{{vm.toggleText3}}</button>
+            <div id="declined">
+                <div class="form-group col-sm-2">
+                    <input type="text" class="form-control input-sm" data-ng-model="vm.searchvalue3" placeholder="Search" style="background-color: lightblue" />
+                </div>
+                <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.obuLoad3()">Load Data</button>
+                <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.refreshOBU3()">Referesh</button>
+                <table id="obu3Table" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                    <thead>
+                        <tr>
+                            <th>MIS_Code</th>
+                            <th>Caption</th>
+                            <th>Accountnumber</th>
+                            <th>Narrative</th>
+
+                            <th>CustomerName</th>
+                            <th>Period</th>
+                            <th>Year</th>
+                            <th>Amount</th>
+
+                            <th>AccountOfficer_Code</th>
+                            <th>ProductCode</th>
+                            <th>RunDate</th>
+                            <th>ApprovalStatus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="o in vm.declinedstatus">
+
+                            <td>
+                                {{o.MIS_Code}}
+                            </td>
+                            <td>
+                                {{o.Caption}}
+                            </td>
+                            <td>
+                                {{o.Accountnumber}}
+                            </td>
+                            <td>
+                                {{o.Narrative}}
+                            </td>
+
+                            <td>
+                                {{o.CustomerName}}
+                            </td>
+                            <td>
+                                {{o.Period}}
+                            </td>
+                            <td>
+                                {{o.Year}}
+                            </td>
+                            <td>
+                                {{o.Amount}}
+                            </td>
+
+                            <td>
+                                {{o.AccountOfficer_Code}}
+                            </td>
+                            <td>
+                                {{o.ProductCode}}
+                            </td>
+                            <td>
+                                {{o.RunDate}}
+                            </td>
+                            <td>
+                                {{o.ApprovalStatus}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!--================= Declined ends =========================================================-->
+
+
+
+        </div>
+        </div>
+</div>

@@ -1,0 +1,129 @@
+﻿
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i> General</a></li>
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+                                                <div data-ng-include="'app/common/views/validation-view.html'"></div>
+
+
+
+
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">PC Definition</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.paramsObj.lowerlevelcode" ng-options="definition.Code as definition.Name for definition in vm.teamDefList" style="width:250px;" ng-change="vm.teamstructurebydefcode(vm.paramsObj.lowerlevelcode)"></select>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="form-group" ng-show="vm.paramsObj.lowerlevelcode == 'BRH' ? true : false">
+                                                    <label class="col-sm-3 control-label">PC Mis (Branch)</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.paramsObj.lowerlevelmiscode" ng-options="branch.Branch_Code as branch.BranchName for branch in vm.tsLower" style="width:250px;"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" ng-show="vm.paramsObj.lowerlevelcode == 'DIV' ? true : false">
+                                                    <label class="col-sm-3 control-label">PC Mis (Division)</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.paramsObj.lowerlevelmiscode" ng-options="division.Division_Code as division.DivisionName for division in vm.tsLower" style="width:250px;"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" ng-show="vm.paramsObj.lowerlevelcode =='REG' ? true : false">
+                                                    <label class="col-sm-3 control-label">PC Mis (Region)</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.paramsObj.lowerlevelmiscode" ng-options="region.Region_Code as region.RegionName for region in vm.tsLower" style="width:250px;"></select>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <!--<div class="form-group" ng-show="vm.userMIS.ProfitCenterDefinitionCode == 'TEM' ? true : false">
+        <label class="col-sm-3 control-label">PC Mis (Team)</label>
+        <div class="col-sm-9 controls">
+            <select class="form-control" ng-model="vm.miscode" ng-options="team.Team_Code as team.TeamName for team in vm.ts" ng-change="vm.tsOnSelectFunc(team.Team_Code, team.TeamName)" style="width:250px;"></select>
+        </div>
+    </div>-->
+
+                                                <div class="form-group" ng-show="vm.paramsObj.higherlevelcode == 'DIV' ? true : false">
+                                                    <label class="col-sm-3 control-label">PC Mis (Division)</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="division" ng-options="division as division.DivisionName for division in vm.tsHigher" ng-change="vm.tsHigherOnSelectFunc(division.Division_Code, division.DivisionName, 'DIV')" style="width:250px;"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" ng-show="vm.paramsObj.higherlevelcode =='REG' ? true : false">
+                                                    <label class="col-sm-3 control-label">PC Mis (Region)</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="region" ng-options="region as region.RegionName for region in vm.tsHigher" ng-change="vm.tsHigherOnSelectFunc(region.Region_Code, region.RegionName, 'REG')" style="width:250px;"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" ng-show="vm.paramsObj.higherlevelcode =='DIR' ? true : false">
+                                                    <label class="col-sm-3 control-label">PC Mis (Directorate)</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="directorate" ng-options="directorate as directorate.DirectorateName for directorate in vm.tsHigher" ng-change="vm.tsHigherOnSelectFunc(directorate.Directorate_Code, directorate.DirectorateName, 'DIR')" style="width:250px;"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Year</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select ng-model="vm.paramsObj.year" class="form-control input-sm" ng-options="t.value as t.name for t in vm.yearList" style="background-color: lightblue"></select>
+                                                    </div>
+                                                </div>
+
+
+
+
+
+
+
+                                                <div class="form-group mbn">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="col-sm-9 controls">
+                                                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.save()">
+                                                            <i class="fa fa-save"></i>&nbsp;
+                                                            Save
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.delete()">Delete</button>
+                                                        <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel()">Cancel</button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+

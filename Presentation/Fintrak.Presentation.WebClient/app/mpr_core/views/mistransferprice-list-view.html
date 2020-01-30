@@ -1,0 +1,124 @@
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+
+
+            <div class="form-group col-sm-2">
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-mistransferprice-edit({mistransferpriceId:0})"> Create New</a>
+            </div>
+            <!--<div class="form-group col-sm-1">&nbsp</div>-->
+            <!--<br />
+            <form class="form-inline">
+                <div class="col-sm-12">
+
+                    <div class="form-group">
+                        <strong>Definition Code: </strong>
+                        <input type="text" class="form-control input-sm" col-sm-2 data-ng-model="vm.defCode" placeholder="Search" style="background-color: lightblue" />
+                    </div>
+
+                    <div class="form-group">
+                        <strong>MIS Code: </strong>
+                        <input type="text" class="form-control input-sm" col-sm-2 data-ng-model="vm.miscode" placeholder="Search" style="background-color: lightblue" />
+                    </div>
+
+                    <div class="form-group">
+                        <strong>Category: </strong>
+                        <input type="text" class="form-control input-sm" col-sm-2 data-ng-model="vm.BalanceSheetCategory" placeholder="Search" style="background-color: lightblue" />
+                    </div>
+
+                    <div class="form-group">
+                        <strong>Currency: </strong>
+                        <input type="text" class="form-control input-sm" col-sm-2 data-ng-model="vm.CurrencyType" placeholder="Search" style="background-color: lightblue" />
+                    </div>
+
+                </div>
+                <div class="form-group col-sm-12">&nbsp</div>
+
+                <div class="col-sm-12">
+
+                    <div class="form-group">
+                        <strong>Year: </strong>    <div class="form-group col-sm-1">&nbsp</div>
+                        <input type="text" class="form-control input-sm" data-ng-model="vm.period" placeholder="Search" style="background-color: lightblue" />
+                    </div>
+
+                    <div class="form-group">
+                        <strong>Period: </strong>  <div class="form-group col-sm-1">&nbsp</div>
+                        <input type="text" class="form-control input-sm" col-sm-2 data-ng-model="vm.year" placeholder="Search" style="background-color: lightblue" />
+                    </div>
+
+                    <div class="form-group col-sm-2">&nbsp</div>
+
+                    <button type="button" class="btn btn-default btn-sm" data-ng-click="vm.mistpLoad()">Load</button>
+                    <button type="button" class="btn btn-info btn-xs" ng-click="vm.refreshSCM()">Refresh</button>
+
+                </div>
+            </form>-->
+
+          <!--<div  style="padding-top: 10%;"></div>-->
+
+            <table id="mistpTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th>Definition Code</th>
+                        <th>MIS Code</th>
+                        <th>BS Category</th>
+                        <th>Currency Type</th>
+                        <th>Rate</th>
+                        <th>Period</th>
+                        <th>Year</th>
+
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="c in vm.mistp">
+
+                        <td>
+                            {{ c.DefinitionCode}}
+                        </td>
+                        <td>
+                            {{ c.MisCode}}
+                        </td>
+                        <td>
+                            {{ c.BSCategoryName}}
+                        </td>
+                        <td>
+                            {{ c.CurrencyTypeName}}
+                        </td>
+                        <td>
+                            {{ c.Rate}}
+                        </td>
+                        <td>
+                            {{ c.Period}}
+                        </td>
+                        <td>
+                            {{ c.Year}}
+                        </td>
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-mistransferprice-edit({mistransferpriceId: c.mistransferpriceId})">
+                                Edit
+                            </a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

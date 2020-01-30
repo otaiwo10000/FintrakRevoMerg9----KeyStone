@@ -1,0 +1,168 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="form-group col-sm-8">
+                <div class="form-group col-sm-3">
+                    Year <select ng-model="vm.year" class="form-control input-sm" ng-options="t.value as t.name for t in vm.yearList" style="background-color: lightblue"></select>
+                </div>
+                <div class="form-group col-sm-3">
+                    Period <select ng-model="vm.period" class="form-control input-sm" ng-options="t.value as t.name for t in vm.periodList" style="background-color: lightblue"></select>
+                </div>
+                <div class="form-group col-sm-4">
+                    Search <input ng-model="vm.search" class="form-control input-sm" style="background-color: lightblue" />
+                </div>
+                <div class="form-group col-sm-2">
+                    <button type="button" class="btn btn-default" data-ng-click="vm.ddbLoad()">Load</button>
+                </div>
+            </div>
+
+            <br />
+
+            <table id="ddbTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Account Number</th>
+                        <th>customer name</th>
+                        <th>MIS Code</th>
+                        <th>Account Officer Oode</th>
+                        <th>Account Officer</th>
+
+                        <th>Actual Balance</th>
+                        <th>Average Balance</th>
+                        <th>RevExp</th>
+                        <th>Product Code</th>
+                        <th>Category</th>
+
+                        <th>Currency Type</th>
+                        <th>Period</th>
+                        <th>Year</th>
+                        <th>GL Sub</th>
+                        <th>Refno</th>
+
+                        <th>Pool Rate</th>                     
+                        <th>EffYield</th>
+                        <th>Penal Rate</th>
+                        <th>Penal Charge</th>
+                        <th>ExpRev</th>
+
+                        <th>Caption</th>
+                        <th>Category Filter</th>
+                        <th>Branch</th>
+                        <th>Share Ratio</th>
+                        <th>Currency Code</th>
+
+                        <th>Unit</th>
+                        <th>Entry Date</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="d in vm.ddbList">
+                        <td>
+                            {{ d.AccountNumber}}
+                        </td>
+                        <td>
+                            {{ d.customername}}
+                        </td>                      
+                        <td>
+                            {{ d.MIS_Code}}
+                        </td>
+                        <td>
+                            {{ d.accountofficercode}}
+                        </td>
+                        <td>
+                            {{ d.accountofficer}}
+                        </td>
+
+
+                        <td>
+                            {{ d.ActualBalance}}
+                        </td>
+                        <td>
+                            {{ d.AverageBalance}}
+                        </td>
+                        <td>
+                            {{ d.RevExp}}
+                        </td>                      
+                        <td>
+                            {{ d.ProductCode}}
+                        </td>
+                        <td>
+                            {{ d.Category}}
+                        </td>
+
+
+                        <td>
+                            {{ d.Currency_Type}}
+                        </td>                        
+                        <td>
+                            {{ d.Period}}
+                        </td>
+                        <td>
+                            {{ d.Year}}
+                        </td>                      
+                        <td>
+                            {{ d.GL_Sub}}
+                        </td>
+                        <td>
+                            {{ d.Refno}}
+                        </td>
+
+                        <td>
+                            {{ d.PoolRate}}
+                        </td>                       
+                        <td>
+                            {{ d.EffYield}}
+                        </td>
+                        <td>
+                            {{ d.PenalRate}}
+                        </td>
+                        <td>
+                            {{ d.PenalCharge}}
+                        </td>
+                        <td>
+                            {{ d.ExpRev}}
+                        </td>
+
+                        <td>
+                            {{ d.Caption}}
+                        </td>
+                        <td>
+                            {{ d.Category_Filter}}
+                        </td>
+                        <td>
+                            {{ d.Branch}}
+                        </td>
+                        <td>
+                            {{ d.Share_Ratio}}
+                        </td>                        
+                        <td>
+                            {{ d.Currency_Code}}
+                        </td>
+
+                        <td>
+                            {{ d.Unit}}
+                        </td>
+                        <td>
+                            {{ d.EntryDate}}
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

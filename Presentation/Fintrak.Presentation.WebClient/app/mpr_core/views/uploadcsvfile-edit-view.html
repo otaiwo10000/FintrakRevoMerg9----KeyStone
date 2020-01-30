@@ -1,0 +1,300 @@
+﻿
+
+<div class="form-group col-xs-12" style="height:20px;">
+    <strong class="col-xs-12 col-sm-4">
+        <span style="color: darkblue;" id="responsediv" class="col-xs-12"></span>
+    </strong>
+</div>
+
+
+<button class="btn btn-primary btn-xs" ng-click="vm.acctmisoverridedisplayFunc();">{{vm.acctmisoverridedisplayTEXT}}  Accounts Tagging Bulk Upload</button>
+<div class="panel panel-default form-group col-xs-12" ng-show="vm.acctmisoverridedisplay">
+    <div class="panel-body">
+        File must be .csv file
+        <form>
+            <div class="form-group">
+                <input type="file" class="form-control" id="r1" ng-click="vm.acctmisonchangedisableFunc();"/>
+                <button class="btn btn-primary btn-xs" id="rupload" ng-disabled="vm.acctmisbtndisable" ng-click="vm.acctmisbtndisableFunc();">Upload File</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<hr style="width:100%" />
+
+<button class="btn btn-primary btn-xs" ng-click="vm.acctlistingdisplayFunc();">{{vm.acctlistingdisplayTEXT}}  Accounts Listing Bulk Upload</button>
+<div class="panel panel-default form-group col-xs-12" ng-show="vm.acctlistingdisplay">
+    <div class="panel-body">
+        File must be .csv file
+        <form>
+            <div class="form-group">
+                <input type="file" class="form-control" id="acctlistingInputId" ng-click="vm.acctlistingonchangedisableFunc();"/>
+                <button class="btn btn-primary btn-xs" id="acctlistingBtnId" ng-disabled="vm.acctlistingbtndisable" ng-click="vm.acctlistingbtndisableFunc();">Upload File</button>
+            </div>
+        </form>
+    </div>
+</div>
+<hr style="width:100%" />
+
+<!--<div class="panel panel-default form-group col-xs-12">
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label for="myFileField" style="color:darkblue;">Bulk Upload: File must be .csv file:  AccountsListing </label>
+                <input type="file" class="form-control" id="acctlistingInputId" />
+            </div>
+            <button class="btn btn-primary btn-xs" id="acctlistingBtnId">Upload File</button>
+        </form>
+    </div>
+</div>-->
+
+<!--<div class="form-group col-xs-12 col-md-4 ">
+    <label for="inputr1" class="control-label">Upload the Result</label>
+    <input class="form-control" type="file" id="r1" name="r1" />
+</div>
+<div>
+    <input type="button" value="UPLOAD" id="rupload" name="rupload" />
+</div>-->
+
+<br />
+
+
+<!--<br />
+
+<div class="form-group col-xs-12 col-md-4 ">
+    <input type="file" id="file" name="file" multiple
+           onchange="angular.element(this).scope().getFileDetails(this)" />
+
+    <input type="button" ng-click="uploadFiles()" value="Upload" />
+
+</div> -->
+<!--<br />
+<div class="panel panel-default form-group col-xs-12 col-md-4">
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label for="myFileField">Select a file: </label>
+                <input type="file" demo-file-model="myFile" class="form-control" id="myFileField" />
+            </div>
+            <button ng-click="uploadFile()" class="btn btn-primary">Upload File</button>
+        </form>
+    </div>
+</div>-->
+<!--<br />
+<div class="form-group col-xs-12 col-md-4 ">
+    <input type="file" id="file" name="file" multiple
+           onchange="angular.element(this).scope().getFileDetails(this)" />
+
+    <input type="button" ng-click="uploadFiles()" value="Uploadooo" />
+
+</div>-->
+
+
+
+
+<script>
+    $(document).ready(function () {
+
+        $("#r1").on('change', function () {
+            var fileExtension = ['csv'];
+            if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+                $('#responsediv').text("File must be .csv file");
+                this.value = ''; // Clean field
+                return false;
+            }
+        });
+
+        $('#rupload').on('click', function () {
+
+            var data = new FormData();
+            var files = $('#r1').get(0).files;
+
+            if (files.length > 0) {
+                data.append("csvfile", files[0])
+            }
+
+            $.ajax({
+                url: 'api/uploadcsvfile/incomeaccountmisoverride',
+                type: "POST",
+                dataType: "json",
+                data: data,
+                // THIS MUST BE DONE FOR FILE UPLOADING
+                contentType: false,
+                processData: false,
+
+                success: function (data) {
+                    if (data === 'success') {
+                        $('#responsediv').text("File Uploaded.");
+                    }
+                    else {
+                        $('#responsediv').text("Upload failed.");
+                    }
+                },
+
+                error: function (er) {
+                    alert(er);
+                }
+            });  // POST ajax ends
+        });  // save ends
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+
+        $("#acctlistingInputId").on('change', function () {
+            var fileExtension = ['csv'];
+            if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+                $('#responsediv').text("File must be .csv file");
+                this.value = ''; // Clean field
+                return false;
+            }
+        });
+
+        $('#acctlistingBtnId').on('click', function () {
+
+            var data = new FormData();
+            var files = $('#acctlistingInputId').get(0).files;
+
+            if (files.length > 0) {
+                data.append("csvfile", files[0])
+            }
+
+            $.ajax({
+                url: 'api/uploadcsvfile/incomeaccountslisting',
+                type: "POST",
+                dataType: "json",
+                data: data,
+                // THIS MUST BE DONE FOR FILE UPLOADING
+                contentType: false,
+                processData: false,
+
+                success: function (data) {
+                    if (data === 'success') {
+                        $('#responsediv').text("File Uploaded.");
+                    }
+                    else {
+                        $('#responsediv').text("Upload failed.");
+                    }
+                },
+
+                error: function (er) {
+                    alert(er);
+                }
+            });  // POST ajax ends
+        });  // save ends
+    });
+</script>
+
+
+
+
+
+
+<!--<input type="file" id="file1" name="file" multiple
+       ng-files="getTheFiles($files)" />
+
+<input type="button" ng-click="uploadFiles22()" value="Upload22" />-->
+<!--<div class="panel panel-default">
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label for="myFileField2">Select a file: </label>
+                <input type="file" demo-file-model="myFile" class="form-control" id="myFileField2" />
+            </div>
+            <button ng-click="uploadFile()" class="btn btn-primary">Upload File</button>
+        </form>
+    </div>
+</div>-->
+<!--<div class="control-group">
+    <div class="controls">
+        <span class="btn btn-success fileinput-button">
+            <i class="icon-plus icon-white"></i>
+            <input type="file" name="file" data-url="api/uploadcsvfile/uploadingcsvfile" file-model="customer.file"><span>Add files...</span>
+        </span>
+    </div>
+</div>
+
+<div>
+    <span ng-show="!files.length">No files selected</span>
+    <ul>
+        <li ng-repeat="file in files">{{file}}</li>
+    </ul>
+</div>
+
+<div class="form-actions">
+    <button type="button" class="btn btn-primary pull-left" ng-click="upload()">Upload</button>
+</div>
+
+<div class="progress" ng-show="percentage">
+    <div class="bar" style="width: {{percentage}}%;"></div>
+</div>-->
+<!--<link href="app/assets/css/jqueryui.css" rel="stylesheet" />
+
+<script src="app/assets/assets/js/jquery/jquery-2.1.0.js"></script>
+<script src="../../../Scripts/jquery-ui-1.11.4.min.js"></script>
+<script src="../../../Scripts/jquery.form.js"></script>
+
+
+<div class="form-group col-xs-9 col-md-4 ">
+    <label for="inputr1" class="control-label">Upload the Result</label>
+    <input class="form-control" type="file" id="r1" />
+    <div class="field-validation-error ppp2displaycp" id="div3r1"></div>
+</div>
+<div form-group col-xs-3 col-md-4>
+    <input type="button" id="uploadfile" value="UpLoad File" />
+</div>
+
+
+
+
+<script>
+    $(document).ready(function () {
+
+        var $r1 = $('#r1');
+
+        $('#uploadfile').on('click', function () {
+
+            var data = new FormData();
+            //var files3 = $("#ppp2").get(0).files;
+            var files = $r1.get(0).files;
+
+            if (files.length > 0) {
+
+                data.append("r1", files[0])
+            }
+
+            $.ajax({
+                //url: '@Url.Action("uploadingcsvfile", "uploadcsvfile")',
+                url: 'api/uploadcsvfile/uploadingcsvfile',
+                type: "POST",
+               // enctype: 'multipart/form-data',
+                dataType: "json",
+
+                data: data,
+                cache: 'false',
+               // headers: { 'Content-Type': undefined },
+                // THIS MUST BE DONE FOR FILE UPLOADING
+                contentType: false,
+                //contentType: "application/json",
+                processData: false,
+
+                success: function (newApplicant) {
+                    //$('#add-form-applicant')[0].reset();
+                    ////$('#add-form-appl').trigger('reset');  // it works like reset
+                    //$('#add-form-applicant').hide();
+                    //$('#apply').show();
+                    //$('#div3r1').text('');
+                    //$('.5thPage').hide();
+                },
+
+                //error: function() {
+                //    alert('error saving jQueryTest');
+                error: function (er) {
+                    alert(er);
+                }
+            });  // POST ajax ends
+        });  // save ends
+    });
+
+</script>-->

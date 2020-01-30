@@ -1,0 +1,186 @@
+﻿<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+               
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i>MPR ScoreCard Metrics</a></li>
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <!--<div class="col-md-7">-->
+                                <div class="col-md-12">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+                                                <div data-ng-include="'app/common/views/validation-view.html'"></div>
+
+                                                <!--<div class="form-group">
+       <br />
+    </div>-->
+
+                                                <div class="form-group col-sm-12">
+                                                    <div class="form-group col-sm-3">
+                                                        <label class="control-label">Metric Name</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.scm.Metric" style="background-color: lightblue" />
+                                                    </div>
+                                                    <!--<div class="form-group col-sm-1">&nbsp</div>-->
+
+
+                                                    <div class="form-group col-sm-3">
+                                                        <label class="control-label">Description</label>
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.scm.Metric_Description" style="background-color: lightblue" />
+                                                    </div>
+
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="control-label">Metric Code</label>
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.scm.Metric_Code" style="background-color: lightblue" />
+                                                    </div>
+                                                    <!--<div class="form-group col-sm-1">&nbsp</div>-->
+
+
+                                                    <!--<div class="form-group col-sm-1">&nbsp</div>-->
+                                                    <!--<div class="form-group col-sm-2">
+        <label class="control-label">MIS Code</label>
+        <input type="text" class="form-control input-sm" data-ng-model="vm.scm.MisCode" style="background-color: lightblue" />
+    </div>-->
+                                                    <!--<div class="form-group col-sm-2">
+        <label class="control-label">MIS Code</label>
+        <select ng-model="vm.scm.MisCode" ng-options="m.Accountofficer_Code as m.AccountofficerName for m in vm.miscode" style="width:250px;background-color:lightblue" class="form-control"></select>
+    </div>-->
+
+                                                    <div class="form-group col-sm-2">
+                                                        <label for="ldefcode" class="control-label">Definition Code</label>
+                                                        <select class="form-control" ng-model="vm.definitioncode" ng-options="d.Code as d.Name for d in vm.defcode" ng-change="vm.misco(vm.definitioncode)" style="background-color: lightblue"></select>
+                                                    </div>
+                                                    <!--<div class="form-group col-sm-1">&nbsp</div>-->
+                                                </div>
+
+
+
+                                                <div class="form-group col-sm-12">
+                                                    <div class="form-group col-sm-3" ng-show="vm.definitioncode == 'ACCT' ? true : false">
+                                                        <label class="control-label">ACCT Name/Code</label>
+                                                        <input type="text" data-ng-model="vm.acctText" class="form-control input-sm" placeholder="Enter first-three characters?" style="background-color: lightblue" />
+                                                        <button type="button" class="btn btn-default btn-xs" ng-click="vm.aofficer(vm.definitioncode)">Fetch AccountOfficers</button>
+                                                    </div>
+                                                    <!--<div class="form-group col-sm-1">&nbsp</div>-->
+                                                    <!--<div class="form-group col-sm-offset-3"></div>-->
+                                                    <!--<div class="form-group col-sm-3">&nbsp</div>-->
+
+                                                    <div class="form-group col-sm-3" ng-show="vm.definitioncode == 'ACCT' ? true : false">
+                                                        <label class="control-label">MIS Code</label>
+                                                        <select ng-model="vm.scm.MisCode" ng-options="d.Accountofficer_Code as d.AccountofficerName for d in vm.miscode" class="form-control" style="background-color: lightblue"></select>
+                                                        <span>{{vm.scm.MisCode}}</span>
+                                                    </div>
+                                                    <!--<div class="form-group col-sm-3">&nbsp</div>-->
+
+
+                                                    <div class="form-group col-sm-3" ng-show="vm.definitioncode == 'TEM' ? true : false">
+                                                        <label class="control-label">MIS Code</label>
+                                                        <select ng-model="vm.scm.MisCode" ng-options="d.Team_Code as d.TeamName for d in vm.miscode" class="form-control" style="background-color: lightblue"></select>
+                                                    </div>
+                                                    <!--<div class="form-group col-sm-3">&nbsp</div>-->
+
+                                                    <div class="form-group col-sm-3" ng-show="vm.definitioncode == 'BRH' ? true : false">
+                                                        <label class="control-label">MIS Code</label>
+                                                        <select ng-model="vm.scm.MisCode" ng-options="d.Branch_Code as d.BranchName for d in vm.miscode" class="form-control" style="background-color: lightblue"></select>
+                                                    </div>
+
+                                                    <div class="form-group col-sm-3" ng-show="vm.definitioncode == 'DIV' ? true : false">
+                                                        <label class="control-label">MIS Code</label>
+                                                        <select ng-model="vm.scm.MisCode" ng-options="d.Division_Code as d.DivisionName for d in vm.miscode" class="form-control" style="background-color: lightblue"></select>
+                                                    </div>
+
+
+                                                    <div class="form-group col-sm-3" ng-show="vm.definitioncode == 'GRP' ? true : false">
+                                                        <label class="control-label">MIS Code</label>
+                                                        <select ng-model="vm.scm.MisCode" ng-options="d.Group_Code as d.GroupName for d in vm.miscode" class="form-control" style="background-color: lightblue"></select>
+                                                    </div>
+
+                                                    <div class="form-group col-sm-3" ng-show="vm.definitioncode == 'REG' ? true : false">
+                                                        <label class="control-label">MIS Code</label>
+                                                        <select ng-model="vm.scm.MisCode" ng-options="d.Region_Code as d.RegionName for d in vm.miscode" class="form-control" style="background-color: lightblue"></select>
+                                                    </div>
+
+                                                    <div class="form-group col-sm-3" ng-show="vm.definitioncodee == 'DIR' ? true : false">
+                                                        <label class="control-label">MIS Code</label>
+                                                        <select ng-model="vm.scm.MisCode" ng-options="d.DIRECTORATECODE as d.DIRECTORATENAME for d in vm.miscode" class="form-control" style="background-color: lightblue"></select>
+                                                    </div>
+
+                                                </div>
+                                               
+
+                                                <div class="form-group col-sm-12">
+                                                    <div class="form-group col-sm-3">
+                                                        <label class="control-label">Metric Score Determinance</label>
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.scm.Metric_Score_determinant" style="background-color: lightblue" />
+                                                    </div>
+                                                    <!--<div class="form-group col-sm-1">&nbsp</div>-->
+
+                                                    <div class="form-group col-sm-3">
+                                                        <label class="control-label">Perspective</label>
+                                                        <select ng-model="vm.scm.PerspectiveId" ng-options="p.PerspectiveId as p.Perspective for p in vm.perspectives" style="width:250px;background-color:lightblue" class="form-control"></select>
+                                                    </div>
+
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="control-label">Period</label>
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.scm.Period" style="background-color: lightblue" />
+                                                    </div>
+
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="control-label">Year</label>
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.scm.Year" style="background-color: lightblue" />
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group col-sm-12">
+                                                    <div class="form-group col-sm-2">
+                                                        <label class="control-label">Metric Position</label>
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.scm.Metric_Position" style="background-color: lightblue" />
+                                                    </div>
+                                                                                                        <!--<div class="form-group col-sm-offset-10">&nbsp</div>-->
+                                                 </div>
+
+                                                <!--<br />-->
+
+                                                <div class="form-group mbn">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="col-sm-9 controls">
+                                                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.save()">
+                                                            <i class="fa fa-save"></i>&nbsp;
+                                                            Save
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.delete()">Delete</button>
+                                                        <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel()">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+

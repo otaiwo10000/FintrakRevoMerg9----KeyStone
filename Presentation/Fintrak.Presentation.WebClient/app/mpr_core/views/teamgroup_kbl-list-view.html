@@ -1,0 +1,77 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                    <a class="btn btn-info btn-xs" data-ui-sref="mpr-teamgroup_kbl-edit({teamgroupid:0})"> Create New</a>
+            </div>
+
+            <br />
+
+
+
+            <table id="teamstructureTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Division Code</th>
+                        <th>Division Name</th>
+
+                        <th>Region Code</th>
+                        <th>Region Name</th>
+
+                        <th>Directorate Code</th>
+                        <th>Directorate Name</th>
+
+                        <th>Year</th>
+
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="c in vm.teamstructure">
+
+                        <td>
+                            {{ c.Branch_Code}}
+                        </td>
+                        <td>
+                            {{ c.BranchName}}
+                        </td>
+                        <td>
+                            {{ c.Region_Code}}
+                        </td>
+                        <td>
+                            {{ c.RegionName}}
+                        </td>
+                        <td>
+                            {{ c.Division_Code}}
+                        </td>
+                        <td>
+                            {{ c.DivisionName}}
+                        </td>
+                        <td>
+                            {{ c.Year}}
+                        </td>
+                        
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-teamgroup_kbl-edit({teamgroupid: c.TeamGroupId})">
+                                Edit
+                            </a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

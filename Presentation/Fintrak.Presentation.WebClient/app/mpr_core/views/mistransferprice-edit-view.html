@@ -1,0 +1,194 @@
+﻿<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+               
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i>MIS Transfer Price</a></li>
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-7">
+                                <!--<div class="col-md-12">-->
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body" style="padding-left: 10%;">
+
+                                                <div data-ng-include="'app/common/views/validation-view.html'"></div>
+
+                                                <!--<div style="padding-left: 10%;">-->
+
+                                                <div class="form-group">
+                                                    <label for="ldefcode" class="control-label col-sm-3">Definition Code</label>
+                                                    <div class="col-sm-6 controls">
+                                                        <select class="form-control" ng-model="vm.mistp.DefinitionCode" ng-options="d.Code as d.Name for d in vm.defcode" ng-change="vm.teamstructurebydefcode(vm.mistp.DefinitionCode)"></select>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group" ng-show="vm.mistp.DefinitionCode == 'TEM' ? true : false">
+                                                    <label class="control-label col-sm-3">MIS Code</label>
+                                                    <div class="col-sm-6 controls">
+                                                        <select ng-model="vm.mistp.MisCode" ng-options="d.Team_Code as d.TeamName for d in vm.miscode" class="form-control"></select>
+                                                    </div>
+                                                </div>
+
+
+                                                <div>
+                                                    <div class="form-group" ng-show="vm.mistp.DefinitionCode == 'ACCT' ? true : false">
+                                                        <label class="col-sm-3 control-label">ACCT Name/Code</label>
+                                                        <div class="col-sm-6 controls">
+                                                            <input type="text" data-ng-model="vm.acctText" class="form-control input-sm" placeholder="Enter first-three characters?" />
+                                                            <button type="button" class="btn btn-default btn-xs" ng-click="vm.aofficer(vm.mistp.DefinitionCode)">Fetch AccountOfficers</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" ng-show="vm.mistp.DefinitionCode == 'ACCT' ? true : false">
+                                                    <label class="control-label col-sm-3">MIS Code</label>
+                                                    <div class="col-sm-6 controls">
+                                                        <select ng-model="vm.mistp.MisCode" ng-options="d.Accountofficer_Code as d.AccountofficerName for d in vm.miscode" class="form-control"></select>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <div class="form-group" ng-show="vm.mistp.DefinitionCode == 'BRH' ? true : false">
+                                                    <label class="control-label col-sm-3">MIS Code</label>
+                                                    <div class="col-sm-6 controls">
+                                                        <select ng-model="vm.mistp.MisCode" ng-options="d.Branch_Code as d.BranchName for d in vm.miscode" class="form-control"></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" ng-show="vm.mistp.DefinitionCode == 'DIV' ? true : false">
+                                                    <label class="control-label col-sm-3">MIS Code</label>
+                                                    <div class="col-sm-6 controls">
+                                                        <select ng-model="vm.mistp.MisCode" ng-options="d.Division_Code as d.DivisionName for d in vm.miscode" class="form-control"></select>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group" ng-show="vm.mistp.DefinitionCode == 'GRP' ? true : false">
+                                                    <label class="control-label col-sm-3">MIS Code</label>
+                                                    <div class="col-sm-6 controls">
+                                                        <select ng-model="vm.mistp.MisCode" ng-options="d.Group_Code as d.GroupName for d in vm.miscode" class="form-control"></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" ng-show="vm.mistp.DefinitionCode == 'REG' ? true : false">
+                                                    <label class="control-label col-sm-3">MIS Code</label>
+                                                    <div class="col-sm-6 controls">
+                                                        <select ng-model="vm.mistp.MisCode" ng-options="d.Region_Code as d.RegionName for d in vm.miscode" class="form-control"></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" ng-show="vm.mistp.DefinitionCode == 'DIR' ? true : false">
+                                                    <label class="control-label col-sm-3">MIS Code</label>
+                                                    <div class="col-sm-6 controls">
+                                                        <select ng-model="vm.mistp.MisCode" ng-options="d.DIRECTORATECODE as d.DIRECTORATENAME for d in vm.miscode" class="form-control"></select>
+                                                    </div>
+                                                </div>
+
+                                                <!--<div class="form-group">
+                                                    <label class="control-label col-sm-3">BalanceSheet Category</label>
+                                                    <div class="col-sm-3 controls">
+                                                        <select ng-model="vm.mistp.BalanceSheetCategory" ng-options="b.Value as b.Text for b in vm.bsCategoryList" class="form-control"></select>
+                                                    </div>
+                                                </div>-->
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-3">BalanceSheet Category</label>
+                                                    <div class="col-sm-3 controls">
+                                                        <select ng-model="vm.mistp.BalanceSheetCategory" ng-options="b.BalanceSheetCategory as b.BSCategoryName for b in vm.bsCategoryList" class="form-control"></select>
+                                                    </div>
+                                                </div>
+
+
+                                                <!--<div class="form-group">
+        <label class="control-label col-sm-3">Currency Type</label>
+        <div class="col-sm-3 controls">
+            <select ng-model="vm.mistp.CurrencyType" ng-options="c.Value as c.Text for c in vm.currencyList" class="form-control"></select>
+        </div>
+    </div>-->
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-3">Currency Type</label>
+                                                    <div class="col-sm-3 controls">
+                                                        <select ng-model="vm.mistp.CurrencyType" ng-options="c.CurrencyType as c.CurrencyTypeName for c in vm.currencyList" class="form-control"></select>
+                                                    </div>
+                                                </div>
+
+
+                                                <!--<div class="form-group col-sm-4">&nbsp</div>-->
+
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-3">Rate</label>
+                                                    <div class="col-sm-4 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.mistp.Rate" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-3">Period</label>
+                                                    <div class="col-sm-4 controls">
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.mistp.Period" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+
+                                                    <label class="control-label col-sm-3">Year</label>
+                                                    <div class="col-sm-4 controls">
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.mistp.Year" />
+                                                    </div>
+                                                </div>
+
+
+
+
+
+                                                <!--<div class="form-group col-sm-offset-10">&nbsp</div>-->
+
+
+
+
+                                                <div class="form-group mbn">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="col-sm-9 controls">
+                                                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.save()">
+                                                            <i class="fa fa-save"></i>&nbsp;
+                                                            Save
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.delete()">Delete</button>
+                                                        <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel()">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+</form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+

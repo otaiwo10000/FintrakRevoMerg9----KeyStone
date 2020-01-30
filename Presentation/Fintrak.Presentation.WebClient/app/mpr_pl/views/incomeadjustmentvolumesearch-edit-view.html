@@ -1,0 +1,144 @@
+﻿<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i> General</a></li>
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">MIS Code</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input class="form-control" ng-model="vm.vol.MIS_Code" style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Account Code</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input class="form-control" ng-model="vm.vol.accountofficercode" style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Account Number</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input class="form-control" ng-model="vm.vol.AccountNumber" style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Customer Name</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input class="form-control" ng-model="vm.vol.customername" style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" ng-show="vm.balshow">
+                                                    <label class="col-sm-3 control-label">Balance</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input class="form-control" ng-model="vm.vol.ActualBalance" style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" ng-show="vm.avgshow">
+                                                    <label class="col-sm-3 control-label">Average</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input class="form-control" ng-model="vm.vol.AverageBalance" style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" ng-show="vm.inteshow">
+                                                    <label class="col-sm-3 control-label">Interest</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input class="form-control" ng-model="vm.vol.RevExp" style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Product Code</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input class="form-control" ng-model="vm.vol.ProductCode" style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Category</label>
+                                                    <div class="col-sm-6 controls">
+                                                        <!--<input class="form-control" ng-model="vm.vol.Category" style="width:250px;background-color:lightblue" />-->
+                                                        <select ng-model="vm.vol.Category" class="form-control input-sm" ng-options="c.value as c.name for c in vm.categoryList" style="background-color: lightblue"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Currency</label>
+                                                    <div class="col-sm-3 controls">
+                                                        <select ng-model="vm.vol.Currency_Type" class="form-control input-sm" ng-options="c.value as c.name for c in vm.currencyTypeList" style="background-color: lightblue"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" ng-show="vm.capshow">
+                                                    <label class="col-sm-3 control-label">Caption</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input class="form-control" ng-model="vm.vol.Caption" style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" ng-show="refnoshow">
+                                                    <label class="col-sm-3 control-label">Ref Number</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input class="form-control" ng-model="vm.vol.Refno" style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Period</label>
+                                                    <div class="col-sm-3 controls">
+                                                        <select ng-model="vm.vol.Period" class="form-control input-sm" ng-options="t.value as t.name for t in vm.periodList" style="background-color: lightblue"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Year</label>
+                                                    <div class="col-sm-3 controls">
+                                                        <select ng-model="vm.vol.Year" class="form-control input-sm" ng-options="t.value as t.name for t in vm.yearList" style="background-color: lightblue"></select>
+                                                    </div>
+                                                </div>
+
+
+
+
+
+                                                <div class="form-group mbn">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="col-sm-9 controls">
+                                                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.save()">
+                                                            <i class="fa fa-save"></i>&nbsp;
+                                                            Save
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.delete()">Delete</button>
+                                                        <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel()">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+

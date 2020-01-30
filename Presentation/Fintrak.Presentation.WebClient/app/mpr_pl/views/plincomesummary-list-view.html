@@ -1,0 +1,101 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="form-group col-sm-7">
+                <div class="form-group col-sm-5">
+                    Year <select ng-model="vm.year" class="form-control input-sm" ng-options="t.value as t.name for t in vm.yearList" style="background-color: lightblue"></select>
+                </div>
+                <div class="form-group col-sm-5">
+                    Period <select ng-model="vm.period" class="form-control input-sm" ng-options="t.value as t.name for t in vm.periodList" style="background-color: lightblue"></select>
+                </div>
+                <button type="button" class="btn btn-default" data-ng-click="vm.plLoad()">Load</button>
+
+            </div>
+
+            <br/>
+
+            <table id="plTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>MainCaption</th>
+                        <th>Budget</th>
+                        <th>Jan</th>
+                        <th>Feb</th>
+                        <th>Mar</th>
+                        <th>Apr</th>
+                        <th>May</th>
+                        <th>Jun</th>
+                        <th>Jul</th>
+                        <th>Aug</th>
+                        <th>Sep</th>
+                        <th>Oct</th>
+                        <th>Nov</th>
+                        <th>Dec</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="n in vm.plList">
+                        <td>
+                            {{n.MainCaption}}
+                        </td>
+                        <td>
+                            {{n.Budget}}
+                        </td>
+                        <td>
+                            {{n.Jan}}
+                        </td>
+                        <td>
+                            {{n.Feb}}
+                        </td>
+                        <td>
+                            {{n.Mar}}
+                        </td>
+                        <td>
+                            {{n.Apr}}
+                        </td>
+                        <td>
+                            {{n.May}}
+                        </td>
+                        <td>
+                            {{n.Jun}}
+                        </td>
+                        <td>
+                            {{n.Jul}}
+                        </td>
+                        <td>
+                            {{n.Aug}}
+                        </td>
+                        <td>
+                            {{n.Sep}}
+                        </td>
+                        <td>
+                            {{n.Oct}}
+                        </td>
+                        <td>
+                            {{n.Nov}}
+                        </td>
+                        <td>
+                            {{n.Dec}}
+                        </td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

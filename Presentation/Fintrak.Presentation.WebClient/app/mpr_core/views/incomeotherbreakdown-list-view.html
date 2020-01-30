@@ -1,0 +1,117 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div>
+        <a class="btn btn-info btn-xs" data-ui-sref="mpr-incomeotherbreakdown-edit({ID:0})"> Create New</a>
+    </div>-->
+
+            <div class="form-group col-sm-7">
+                <div class="form-group col-sm-5">
+                    Year <select ng-model="vm.year" class="form-control input-sm" ng-options="t.value as t.name for t in vm.yearList" style="background-color: lightblue"></select>
+                </div>
+                <div class="form-group col-sm-5">
+                    Period <select ng-model="vm.period" class="form-control input-sm" ng-options="t.value as t.name for t in vm.periodList" style="background-color: lightblue"></select>
+                </div>
+                <div class="form-group col-sm-5">
+                    Search <input ng-model="vm.search" class="form-control input-sm" style="background-color: lightblue" />
+                </div>
+                <div class="form-group col-sm-1">
+                    <button type="button" class="btn btn-default" ng-click="vm.iobLoad()">Load</button>
+                </div>
+            </div>
+
+            <br />
+
+            <table id="iobddTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>MIS_Code</th>
+                        <th>Caption</th>
+                        <th>Accountnumber</th>
+                        <th>Narrative</th>
+                        <th>CustomerName</th>
+                        <th>Period</th>
+                        <th>Year</th>
+                        <th>Amount</th>
+                        <th>AccountOfficer_Code</th>
+                        <th>Volume</th>
+                        <th>Indicator</th>
+                        <th>EntryStatus</th>
+                        <th>DateEntered</th>
+                        <th>ProductCode</th>
+                        <th>RunDate</th>
+
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="i in vm.incomeotherbreakdown">
+                        <td>
+                            {{ i.MIS_Code}}
+                        </td>
+                        <td>
+                            {{ i.Caption}}
+                        </td>
+                        <td>
+                            {{ i.Accountnumber}}
+                        </td>
+                        <td>
+                            {{ i.Narrative}}
+                        </td>
+                        <td>
+                            {{ i.CustomerName}}
+                        </td>
+                        <td>
+                            {{ i.Period}}
+                        </td>
+                        <td>
+                            {{ i.Year}}
+                        </td>
+                        <td>
+                            {{ i.Amount}}
+                        </td>
+                        <td>
+                            {{ i.AccountOfficer_Code}}
+                        </td>
+                        <td>
+                            {{ i.Volume}}
+                        </td>
+                        <td>
+                            {{ i.Indicator}}
+                        </td>
+                        <td>
+                            {{ i.EntryStatus}}
+                        </td>
+                        <td>
+                            {{ i.DateEntered}}
+                        </td>
+                        <td>
+                            {{ i.ProductCode}}
+                        </td>
+                        <td>
+                            {{ i.RunDate}}
+                        </td>
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-incomeotherbreakdown-edit({ID: i.ID})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

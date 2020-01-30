@@ -1,0 +1,147 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            
+            <form class="form-inline">
+                <div class="form-group col-sm-2">
+                    <a class="btn btn-info btn-xs" data-ui-sref="mpr-ftpriskratings-edit({ID:0})"> Create New</a>
+                </div>
+
+                <div class="form-group col-sm-1">&nbsp</div>
+
+                <div class="form-group col-sm-2">
+                    <input type="text" class="form-control input-sm" data-ng-model="vm.searchvalue" placeholder="Search" style="background-color: lightblue" />
+                </div>
+
+                <button type="button" class="btn btn-default btn-sm" data-ng-click="vm.icflLoad()">Load</button>
+                <button type="button" class="btn btn-info btn-xs" ng-click="vm.refreshICFL()">Refresh</button>
+
+            </form>
+            <br />
+
+            <table id="ftpRiskRatingsTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Ratings</th>
+                        <th>Currency</th>
+                        <th>Category</th>
+                        <th>Caption</th>
+                        <th>Levels</th>
+                        <th>LevelCode</th>
+                        <th>JAN</th>
+                        <th>Feb</th>
+                        <th>Mar</th>
+                        <th>Apr</th>
+                        <th>May</th>
+                        <th>Jun</th>
+                        <th>Jul</th>
+                        <th>Aug</th>
+                        <th>Sep</th>
+                        <th>Oct</th>
+                        <th>Nov</th>
+                        <th>Dec</th>
+                        <th>Year</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="i in vm.fTPRiskRatingss">
+                        <td>
+                            {{ i.Ratings}}
+                        </td>
+
+                        <td>
+                            {{ i.Currency}}
+                        </td>
+
+                        <td>
+                            {{ i.Category}}
+                        </td>
+
+                        <td>
+                            {{ i.Caption}}
+                        </td>
+
+                        <td>
+                            {{ i.Levels}}
+                        </td>
+
+                        <td>
+                            {{ i.LevelCode}}
+                        </td>
+
+                        <td>
+                            {{ i.JAN}}
+                        </td>
+
+                        <td>
+                            {{ i.Feb}}
+                        </td>
+
+                        <td>
+                            {{ i.Mar}}
+                        </td>
+
+                        <td>
+                            {{ i.Apr}}
+                        </td>
+
+                        <td>
+                            {{ i.May}}
+                        </td>
+
+                        <td>
+                            {{ i.Jun}}
+                        </td>
+
+                        <td>
+                            {{ i.Jul}}
+                        </td>
+
+                        <td>
+                            {{ i.Aug}}
+                        </td>
+
+                        <td>
+                            {{ i.Sep}}
+                        </td>
+
+                        <td>
+                            {{ i.Oct}}
+                        </td>
+
+                        <td>
+                            {{ i.Nov}}
+                        </td>
+
+                        <td>
+                            {{ i.Dec}}
+                        </td>
+
+                        <td>
+                            {{ i.Year}}
+                        </td>
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-ftpriskratings-edit({ID: i.ID})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

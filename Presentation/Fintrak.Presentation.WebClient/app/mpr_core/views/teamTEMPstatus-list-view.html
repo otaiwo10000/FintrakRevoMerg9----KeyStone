@@ -1,0 +1,383 @@
+
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+
+            <!--================= Awaiting  starts ======================================================-->
+
+            <button class="btn btn-primary btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.toggleReportPage()">{{vm.toggleText}}</button>
+            
+            <div id="awaiting">
+                <div class="form-group col-sm-2">
+                    <input type="text" class="form-control input-sm" data-ng-model="vm.searchvalue1" placeholder="Search" style="background-color: lightblue" />
+                </div>
+                <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.obuLoad()">Load Data</button>
+                <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.refreshOBU()">Referesh</button>
+
+                <div class="col-sm-12">
+                    <button class="btn btn-default btn-xs col-xs-1" style="margin-left:1%;" ng-click="vm.TeamAllCheckBoxes()">{{vm.toggleTextTeam}}</button>
+                </div>
+
+                <table id="obuTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                    <thead>
+                        <tr>
+                            <th>Check</th>
+
+                            <th>Accountofficer_Code</th>
+                            <th>AccountofficerName</th>
+                            <th>Team_Code</th>
+                            <th>TeamName</th>
+
+                            <th>Branch_Code</th>
+                            <th>BranchName</th>
+                            <th>Group_Code</th>
+                            <th>GroupName</th>
+
+                            <th>Region_Code</th>
+                            <th>RegionName</th>
+                            <th>Division_Code</th>
+                            <th>DivisionName</th>
+
+                            <th>DIRECTORATECODE</th>
+                            <th>DIRECTORATENAME</th>
+                            <th>Segment_Code</th>
+                            <th>SegmentName</th>
+                            <th>SuperSegment_Code</th>
+                            <th>SuperSegmentName</th>
+                            <th>Year</th>
+                            <th>ApprovalStatus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="o in vm.awaitingstatus">
+
+                            <td>
+                                <input type="checkbox"
+                                       value="{{o.Team_StructureId}}"
+                                       ng-checked="vm.selectionoverride.indexOf(o.Team_StructureId) > -1"
+                                       ng-click="vm.toggleSelectionOverride(o.Team_StructureId)" /> {{o.Team_StructureId}}
+                            </td>
+
+                            <td>
+                                {{o.Accountofficer_Code}}
+                            </td>
+                            <td>
+                                {{o.AccountofficerName}}
+                            </td>
+                            <td>
+                                {{o.Team_Code}}
+                            </td>
+                            <td>
+                                {{o.TeamName}}
+                            </td>
+
+                            <td>
+                                {{o.Branch_Code}}
+                            </td>
+                            <td>
+                                {{o.BranchName}}
+                            </td>
+                            <td>
+                                {{o.Group_Code}}
+                            </td>
+                            <td>
+                                {{o.GroupName}}
+                            </td>
+
+                            <td>
+                                {{o.Region_Code}}
+                            </td>
+                            <td>
+                                {{o.RegionName}}
+                            </td>
+                            <td>
+                                {{o.Division_Code}}
+                            </td>
+                            <td>
+                                {{o.DivisionName}}
+                            </td>
+
+                            <td>
+                                {{o.DIRECTORATECODE}}
+                            </td>
+                            <td>
+                                {{o.DIRECTORATENAME}}
+                            </td>
+                            <td>
+                                {{o.Segment_Code}}
+                            </td>
+                            <td>
+                                {{o.SegmentName}}
+                            </td>
+
+                            <td>
+                                {{o.SuperSegment_Code}}
+                            </td>
+                            <td>
+                                {{o.SuperSegmentName}}
+                            </td>
+                            <td>
+                                {{o.Year}}
+                            </td>
+                            <td>
+                                {{o.ApprovalStatus}}
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="form-group mbn">
+                    <label class="col-sm-3 control-label"></label>
+                    <div class="col-sm-9 controls">
+                        <button type="button" class="btn btn-danger btn-xs" ng-click="vm.decline()">Decline</button>
+                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.approve()">
+                            <i class="fa fa-save"></i>&nbsp;
+                            Approve
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <hr style="width:100%" />
+            <!--================= Awaiting  ends ======================================================-->
+            <!--================= Approved  starts ======================================================-->
+
+            <button class="btn btn-primary btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.toggleReportPage2()">{{vm.toggleText2}}</button>
+            <div id="approved">
+                <div class="form-group col-sm-2">
+                    <input type="text" class="form-control input-sm" data-ng-model="vm.searchvalue2" placeholder="Search" style="background-color: lightblue" />
+                </div>
+                <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.obuLoad2()">Load Data</button>
+                <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.refreshOBU2()">Referesh</button>
+                <table id="obu2Table" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                    <thead>
+                        <tr>
+                            <th>Accountofficer_Code</th>
+                            <th>AccountofficerName</th>
+                            <th>Team_Code</th>
+                            <th>TeamName</th>
+
+                            <th>Branch_Code</th>
+                            <th>BranchName</th>
+                            <th>Group_Code</th>
+                            <th>GroupName</th>
+
+                            <th>Region_Code</th>
+                            <th>RegionName</th>
+                            <th>Division_Code</th>
+                            <th>DivisionName</th>
+
+                            <th>DIRECTORATECODE</th>
+                            <th>DIRECTORATENAME</th>
+                            <th>Segment_Code</th>
+                            <th>SegmentName</th>
+                            <th>SuperSegment_Code</th>
+                            <th>SuperSegmentName</th>
+                            <th>Year</th>
+                            <th>ApprovalStatus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="o in vm.approvedstatus">
+                          
+                            <td>
+                                {{o.Accountofficer_Code}}
+                            </td>
+                            <td>
+                                {{o.AccountofficerName}}
+                            </td>
+                            <td>
+                                {{o.Team_Code}}
+                            </td>
+                            <td>
+                                {{o.TeamName}}
+                            </td>
+
+                            <td>
+                                {{o.Branch_Code}}
+                            </td>
+                            <td>
+                                {{o.BranchName}}
+                            </td>
+                            <td>
+                                {{o.Group_Code}}
+                            </td>
+                            <td>
+                                {{o.GroupName}}
+                            </td>
+
+                            <td>
+                                {{o.Region_Code}}
+                            </td>
+                            <td>
+                                {{o.RegionName}}
+                            </td>
+                            <td>
+                                {{o.Division_Code}}
+                            </td>
+                            <td>
+                                {{o.DivisionName}}
+                            </td>
+
+                            <td>
+                                {{o.DIRECTORATECODE}}
+                            </td>
+                            <td>
+                                {{o.DIRECTORATENAME}}
+                            </td>
+                            <td>
+                                {{o.Segment_Code}}
+                            </td>
+                            <td>
+                                {{o.SegmentName}}
+                            </td>
+
+                            <td>
+                                {{o.SuperSegment_Code}}
+                            </td>
+                            <td>
+                                {{o.SuperSegmentName}}
+                            </td>
+                            <td>
+                                {{o.Year}}
+                            </td>
+                            <td>
+                                {{o.ApprovalStatus}}
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr style="width:100%" />
+            <!--================= Approved ends =========================================================-->
+            <!--================= Declined  starts ======================================================-->
+
+            <button class="btn btn-primary btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.toggleReportPage3()">{{vm.toggleText3}}</button>
+            <div id="declined">
+                <div class="form-group col-sm-2">
+                    <input type="text" class="form-control input-sm" data-ng-model="vm.searchvalue3" placeholder="Search" style="background-color: lightblue" />
+                </div>
+                <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.obuLoad3()">Load Data</button>
+                <button class="btn btn-default btn-xs col-xs-2" style="margin-left:2%;" ng-click="vm.refreshOBU3()">Referesh</button>
+                <table id="obu3Table" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                    <thead>
+                        <tr>
+                            <th>Accountofficer_Code</th>
+                            <th>AccountofficerName</th>
+                            <th>Team_Code</th>
+                            <th>TeamName</th>
+
+                            <th>Branch_Code</th>
+                            <th>BranchName</th>
+                            <th>Group_Code</th>
+                            <th>GroupName</th>
+
+                            <th>Region_Code</th>
+                            <th>RegionName</th>
+                            <th>Division_Code</th>
+                            <th>DivisionName</th>
+
+                            <th>DIRECTORATECODE</th>
+                            <th>DIRECTORATENAME</th>
+                            <th>Segment_Code</th>
+                            <th>SegmentName</th>
+                            <th>SuperSegment_Code</th>
+                            <th>SuperSegmentName</th>
+                            <th>Year</th>
+                            <th>ApprovalStatus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="o in vm.declinedstatus">
+
+                            <td>
+                                {{o.Accountofficer_Code}}
+                            </td>
+                            <td>
+                                {{o.AccountofficerName}}
+                            </td>
+                            <td>
+                                {{o.Team_Code}}
+                            </td>
+                            <td>
+                                {{o.TeamName}}
+                            </td>
+
+                            <td>
+                                {{o.Branch_Code}}
+                            </td>
+                            <td>
+                                {{o.BranchName}}
+                            </td>
+                            <td>
+                                {{o.Group_Code}}
+                            </td>
+                            <td>
+                                {{o.GroupName}}
+                            </td>
+
+                            <td>
+                                {{o.Region_Code}}
+                            </td>
+                            <td>
+                                {{o.RegionName}}
+                            </td>
+                            <td>
+                                {{o.Division_Code}}
+                            </td>
+                            <td>
+                                {{o.DivisionName}}
+                            </td>
+
+                            <td>
+                                {{o.DIRECTORATECODE}}
+                            </td>
+                            <td>
+                                {{o.DIRECTORATENAME}}
+                            </td>
+                            <td>
+                                {{o.Segment_Code}}
+                            </td>
+                            <td>
+                                {{o.SegmentName}}
+                            </td>
+
+                            <td>
+                                {{o.SuperSegment_Code}}
+                            </td>
+                            <td>
+                                {{o.SuperSegmentName}}
+                            </td>
+                            <td>
+                                {{o.Year}}
+                            </td>
+                            <td>
+                                {{o.ApprovalStatus}}
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!--================= Declined ends =========================================================-->
+
+
+
+        </div>
+        </div>
+</div>

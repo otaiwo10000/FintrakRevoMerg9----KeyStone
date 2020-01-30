@@ -1,0 +1,111 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                    <a class="btn btn-info btn-xs" data-ui-sref="mpr-teambank_kbl-edit({teambankid:0})"> Create New</a>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="form-group col-sm-2">
+                        <label class="control-label">Teams</label>
+                        <select class="form-control input-sm" ng-model="vm.selectedDefinitionCode" ng-options="d.Code as d.Name for d in vm.teamDefList" style="background-color: lightblue" required title="Select Team Definition"></select>
+                    </div>
+
+                    <div class="form-group col-sm-3">
+                        <label class="control-label">Code/Name</label>
+                        <input type="text" class="form-control input-sm" data-ng-model="vm.SearchValue" placeholder="Enter Code or Name" style="background-color: lightblue" />
+                    </div>
+
+                    <div class="form-group col-sm-2">
+                        <label class="control-label">Year</label>
+                        <select ng-model="vm.year" class="form-control input-sm" ng-options="t.value as t.name for t in vm.yearList" style="background-color: lightblue" required title="Select Year"></select>
+                    </div>
+
+                    <!--<div class="form-group col-sm-3">&nbsp</div>-->
+
+                    <div class="form-group col-sm-2">
+                        <label class="control-label"><span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span></label>
+                        <button type="button" class="btn btn-default btn-xs" ng-click="vm.tsLoad()">Load</button>
+                        <button type="button" class="btn btn-info btn-xs" ng-click="vm.refreshTS()">Refresh</button>
+                    </div>
+                    
+
+                </div>
+            </div>
+
+
+            <table id="teamstructureTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th>Accountofficer Code</th>
+                        <th>Accountofficer Name</th>
+
+                        <th>Branch Code</th>
+                        <th>Branch Name</th>
+
+                        <th>Division Code</th>
+                        <th>Division Name</th>
+
+                        <th>Year</th>
+                        <th>Staff ID</th>
+
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="c in vm.teamstructure">
+
+                        <td>
+                            {{ c.AccountOfficer_Code}}
+                        </td>
+                        <td>
+                            {{ c.AccountOfficer_Name}}
+                        </td>
+                        <td>
+                            {{ c.Team_Code}}
+                        </td>
+                        <td>
+                            {{ c.TeamName}}
+                        </td>
+                        <td>
+                            {{ c.Branch_Code}}
+                        </td>
+                        <td>
+                            {{ c.BranchName}}
+                        </td>                      
+                        <td>
+                            {{ c.Year}}
+                        </td>
+                        <td>
+                            {{ c.StaffID}}
+                        </td>
+
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-teambank_kbl-edit({teambankid: c.TeamBankId})">
+                                Edit
+                            </a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

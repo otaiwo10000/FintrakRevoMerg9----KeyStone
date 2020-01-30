@@ -1,0 +1,297 @@
+﻿
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i> General</a></li>
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+                                                <div data-ng-include="'app/common/views/validation-view.html'"></div>
+
+
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">User</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.userMIS.LoginID" ng-options="user.LoginID as user.LoginID for user in vm.users | orderBy : 'LoginID'" style="width:250px;background-color:lightblue"></select>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">PC Definition</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.userMIS.ProfitCenterDefinitionCode" ng-options="definition.Code as definition.Name for definition in vm.profitCenterDefinitions" style="width:250px;" ng-change="vm.teamstructurebydefcode(vm.userMIS.ProfitCenterDefinitionCode)"></select>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group" ng-show="vm.userMIS.ProfitCenterDefinitionCode == 'BNK' ? true : false">
+                                                    <label class="col-sm-3 control-label">PC Mis (BNK)</label>
+                                                    <span class="col-sm-9 controls"><label>Selected PC MIS Code <b style="color:red">{{vm.userMIS.ProfitCenterMisCode}}</b></label></span>
+                                                    <!--<select class="form-control" ng-model="vm.userMIS.ProfitCenterMisCode" ng-options="team.Code as team.Name for team in vm.profitCenters" style="width:250px;"></select>-->
+                                                    <!--<div class="col-sm-9 controls">-->
+                                                    <!--<select class="form-control" ng-init="vm.userMIS.ProfitCenterMisCode=BNK" ng-model="vm.userMIS.ProfitCenterMisCode" ng-options="b.Code as b.Name for b in vm.bnk" style="width:250px;"></select>-->
+                                                    <!--<select class="form-control" style="width:250px;">
+            <option value="BNK" selected>Total Bank</option>
+        </select>-->
+                                                    <!--</div>-->
+                                                </div>
+
+
+
+                                                <div class="form-group" ng-show="vm.userMIS.ProfitCenterDefinitionCode == 'TEM' ? true : false">
+                                                    <label class="col-sm-3 control-label">PC Mis (Team)</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <div isteven-multi-select
+                                                             input-model="vm.ts"
+                                                             output-model="newArrayTEM"
+                                                             button-label="Team_Code"
+                                                             item-label="TeamName Team_Code"
+                                                             on-close="getSelectAllTEM(newArrayTEM)"
+                                                             tick-property="ticked">
+                                                        </div>
+                                                        <span><label>Selected PC MIS Code <b style="color:red">{{vm.userMIS.ProfitCenterMisCode}}</b></label></span>
+                                                        <!--<select class="form-control" ng-model="vm.userMIS.ProfitCenterMisCode" ng-options="team.Code as team.Name for team in vm.profitCenters" style="width:250px;"></select>-->
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <div class="form-group" ng-show="vm.userMIS.ProfitCenterDefinitionCode == 'ACCT' ? true : false">
+                                                        <label class="col-sm-3 control-label">ACCT Name/Code</label>
+                                                        <div class="col-sm-5 controls">
+                                                            <input type="text" data-ng-model="vm.acctText" class="form-control input-sm" placeholder="Enter first-three characters?" />
+                                                            <button type="button" class="btn btn-default btn-xs" ng-click="vm.aofficer(vm.userMIS.ProfitCenterDefinitionCode)">Fetch AccountOfficers</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" ng-show="vm.userMIS.ProfitCenterDefinitionCode == 'ACCT' ? true : false">
+                                                    <label class="col-sm-3 control-label">PC Mis (ACCT)</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <div isteven-multi-select
+                                                             input-model="vm.ts"
+                                                             output-model="newArrayACCT"
+                                                             button-label="AccountOfficer_Code"
+                                                             item-label="AccountOfficer_Name AccountOfficer_Code"
+                                                             on-close="getSelectAllACCT(newArrayACCT)"
+                                                             tick-property="ticked">
+                                                        </div>
+                                                        <span><label>Selected PC MIS Code <b style="color:red">{{vm.userMIS.ProfitCenterMisCode}}</b></label></span>
+                                                    </div>
+                                                </div>
+
+                                                <!--<div class="form-group" ng-show="vm.userMIS.ProfitCenterDefinitionCode == 'ACCT' ? true : false">
+        <label class="control-label col-sm-3">MIS Code</label>
+        <div class="col-sm-9 controls">
+            <select ng-model="vm.userMIS.ProfitCenterDefinitionCode" ng-options="d.Accountofficer_Code as d.AccountofficerName for d in vm.ts" class="form-control"></select>
+        </div>
+    </div>-->
+
+                                                <div class="form-group" ng-show="vm.userMIS.ProfitCenterDefinitionCode == 'BRH' ? true : false">
+                                                    <label class="col-sm-3 control-label">PC Mis (BRH)</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <div isteven-multi-select
+                                                             input-model="vm.ts"
+                                                             output-model="newArrayBRH"
+                                                             button-label="Branch_Code"
+                                                             item-label="BranchName Branch_Code"
+                                                             on-close="getSelectAllBRH(newArrayBRH)"
+                                                             tick-property="ticked">
+                                                        </div>
+                                                        <span><label>Selected PC MIS Code <b style="color:red">{{vm.userMIS.ProfitCenterMisCode}}</b></label></span>
+                                                        <!--<select class="form-control" ng-model="vm.userMIS.ProfitCenterMisCode" ng-options="team.Code as team.Name for team in vm.profitCenters" style="width:250px;"></select>-->
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" ng-show="vm.userMIS.ProfitCenterDefinitionCode=='DIV' ? true : false">
+                                                    <label class="col-sm-3 control-label">PC Mis (DIV)</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <div isteven-multi-select
+                                                             input-model="vm.ts"
+                                                             output-model="newArrayDIV"
+                                                             button-label="Division_Code"
+                                                             item-label="DivisionName Division_Code"
+                                                             on-close="getSelectAllDIV(newArrayDIV)"
+                                                             tick-property="ticked">
+                                                        </div>
+                                                        <span><label>Selected PC MIS Code <b style="color:red">{{vm.userMIS.ProfitCenterMisCode}}</b></label></span>
+                                                        <!--<select class="form-control" ng-model="vm.userMIS.ProfitCenterMisCode" ng-options="team.Code as team.Name for team in vm.profitCenters" style="width:250px;"></select>-->
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" ng-show="vm.userMIS.ProfitCenterDefinitionCode=='GRP' ? true : false">
+                                                    <label class="col-sm-3 control-label">PC Mis (GRP)</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <div isteven-multi-select
+                                                             input-model="vm.ts"
+                                                             output-model="newArrayGRP"
+                                                             button-label="Group_Code"
+                                                             item-label="GroupName Group_Code"
+                                                             on-close="getSelectAllGRP(newArrayGRP)"
+                                                             tick-property="ticked">
+                                                        </div>
+                                                        <span><label>Selected PC MIS Code <b style="color:red">{{vm.userMIS.ProfitCenterMisCode}}</b></label></span>
+                                                        <!--<select class="form-control" ng-model="vm.userMIS.ProfitCenterMisCode" ng-options="team.Code as team.Name for team in vm.profitCenters" style="width:250px;"></select>-->
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" ng-show="vm.userMIS.ProfitCenterDefinitionCode=='REG' ? true : false">
+                                                    <label class="col-sm-3 control-label">PC Mis (REG)</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <div isteven-multi-select
+                                                             input-model="vm.ts"
+                                                             output-model="newArrayREG"
+                                                             button-label="Region_Code"
+                                                             item-label="RegionName Region_Code"
+                                                             on-close="getSelectAllREG(newArrayREG)"
+                                                             tick-property="ticked">
+                                                        </div>
+                                                        <span><label>Selected PC MIS Code <b style="color:red">{{vm.userMIS.ProfitCenterMisCode}}</b></label></span>
+                                                        <!--<select class="form-control" ng-model="vm.userMIS.ProfitCenterMisCode" ng-options="team.Code as team.Name for team in vm.profitCenters" style="width:250px;"></select>-->
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" ng-show="vm.userMIS.ProfitCenterDefinitionCode=='DIR' ? true : false">
+                                                    <label class="col-sm-3 control-label">PC Mis (DIR)</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <div isteven-multi-select
+                                                             input-model="vm.ts"
+                                                             output-model="newArrayDIR"
+                                                             button-label="Directorate_Code"
+                                                             item-label="DirectorateName Directorate_Code"
+                                                             on-close="getSelectAllDIR(newArrayDIR)"
+                                                             tick-property="ticked">
+                                                        </div>
+                                                        <span><label>Selected PC MIS Code <b style="color:red">{{vm.userMIS.ProfitCenterMisCode}}</b></label></span>
+                                                        <!--<select class="form-control" ng-model="vm.userMIS.ProfitCenterMisCode" ng-options="team.Code as team.Name for team in vm.profitCenters" style="width:250px;"></select>-->
+                                                    </div>
+                                                </div>
+
+                                                <!--<div class="form-group">
+        <label class="col-sm-3 control-label">PC MIS (Teams)</label>
+        <div class="col-sm-9 controls">
+
+            <select class="form-control" ng-model="vm.userMIS.ProfitCenterMisCode" ng-options="team.Team_Code as team.TeamName for team in vm.teams" style="width:250px;" ng-change="vm.onProfitCenterDefinitionChanged(vm.userMIS.ProfitCenterDefinitionCode)"></select>
+            <select class="form-control" ng-model="vm.userMIS.ProfitCenterMisCode" ng-options="team.Team_Code as team.TeamName for team in vm.teams" style="width:250px;"></select>
+
+        </div>
+    </div>-->
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">CC Definition</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.userMIS.CostCenterDefinitionCode" ng-options="definition.Code as definition.Name for definition in vm.costCenterDefinitions" style="width:250px;" ng-change="vm.onCostCenterDefinitionChanged(vm.userMIS.CostCenterDefinitionCode)"></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">CC Mis</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.userMIS.CostCenterMisCode" ng-options="team.Code as team.Name for team in vm.costCenters" style="width:250px;"></select>
+                                                    </div>
+                                                </div>
+
+                                                <h3 ng-show="vm.userMIS.UserMISId > 0">Classifications</h3>
+
+
+                                                <div class="form-group" ng-show="vm.userMIS.UserMISId > 0">
+                                                    <label class="col-sm-3 control-label">Classifications Filteration</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.segment_New.Code" ng-options="segment.Code as segment.Name for segment in segments" style="width:250px;" ng-change="vm.getSegment_New(vm.segment_New.Code)"></select>
+                                                    </div>
+
+                                                </div>
+
+
+
+                                                <div class="form-group" ng-repeat="userClassification in vm.userClassifications" ng-show="vm.userMIS.UserMISId > 0">
+                                                    <label class="col-sm-3 control-label">{{userClassification.ClassificationTypeName}}</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <div class="row">
+                                                            <div class="col-xs-6">
+                                                                <div isteven-multi-select
+                                                                     input-model="userClassification.Classifications"
+                                                                     output-model="newArray"
+                                                                     button-label="Code"
+                                                                     item-label="Name Code"
+                                                                     on-close="getSelectAll(newArray)"
+                                                                     tick-property="ticked">
+                                                                </div>
+                                                                <!--<select class="form-control" ng-model="userClassification.ClassificationCode" ng-options="classification.Code as classification.Name for classification in userClassification.Classifications" style="width:250px;"></select>-->
+                                                            </div>
+
+
+                                                            <!--<div class="row">
+                    <div class="col-sm-12">
+                        <h5>Segment</h5>
+                        <div class="fauxCode hljs xml">
+
+                            Selected Item(s) = [
+                            <table>
+                                <tr class="hljs-tag" ng-repeat="row in newArray">
+                                    <td>&nbsp;</td>
+                                    <td>{</td>
+                                    <td><span class="hljs-attribute">Code</span>: <span class="hljs-value">"{{row.Code}}"</span>,</td>
+                                    <td>}<span ng-if="$index < modernWebBrowsers.length - 1">,</span></td>
+                                </tr>
+                            </table>
+                            ];
+                        </div>
+                    </div>
+                </div>-->
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group mbn">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="col-sm-9 controls">
+                                                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.save()">
+                                                            <i class="fa fa-save"></i>&nbsp;
+                                                            Save
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.delete()">Delete</button>
+                                                        <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel()">Cancel</button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+

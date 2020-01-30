@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9FD67ADA-55A9-4D81-9791-F4E8C9CB064F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fintrak.Business.IFRS.Contracts</RootNamespace>
+    <AssemblyName>Fintrak.Business.IFRS.Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data Contracts\Financial_Instruments\FairValueBasisExemptionData.cs" />
+    <Compile Include="Data Contracts\Financial_Instruments\FairValueBasisMapData.cs" />
+    <Compile Include="Data Contracts\Finstat\AutoPostingTemplateData.cs" />
+    <Compile Include="Data Contracts\Finstat\PostingDetailData.cs" />
+    <Compile Include="Data Contracts\Finstat\GLAdjustmentData.cs" />
+    <Compile Include="Data Contracts\Finstat\GLMappingData.cs" />
+    <Compile Include="Data Contracts\Finstat\GLTypeData.cs" />
+    <Compile Include="Data Contracts\Finstat\InstrumentTypeData.cs" />
+    <Compile Include="Data Contracts\Finstat\InstrumentTypeGLMapData.cs" />
+    <Compile Include="Data Contracts\IFRS CORE\IFRSRevacctRegistryData.cs" />
+    <Compile Include="Data Contracts\IFRS CORE\IFRSRegistryData.cs" />
+    <Compile Include="Data Contracts\IFRS EXTRACTED DATA\UnMappedProduct.cs" />
+    <Compile Include="Data Contracts\IFRS EXTRACTED DATA\LoanPryData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\BondConsolidatedDataOthers.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\LoanConsolidatedFSDH.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\TbillConsolidatedData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\LoanConsolidatedData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\BondConsolidatedData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\CollateralInformationData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\CollateralRealizationPeriodData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\CollateralTypeData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\IFRSProductData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\ImpairmentOverrideData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\IndividualImpairmentData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\IndividualScheduleData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\LoanSetupData.cs" />
+    <Compile Include="Data Contracts\IFRS9\ForecastedMacroeconimcsScenarioData.cs" />
+    <Compile Include="Data Contracts\IFRS9\ForecastedMacroeconimcsSensitivityData.cs" />
+    <Compile Include="Data Contracts\IFRS9\IfrsStocksMappingData.cs" />
+    <Compile Include="Data Contracts\IFRS9\MacroEconomicHistoricalData.cs" />
+    <Compile Include="Data Contracts\IFRS9\MarkovMatrixData.cs" />
+    <Compile Include="Data Contracts\IFRS9\RatingMappingData.cs" />
+    <Compile Include="Data Contracts\IFRS9\SectorVariableMappingData.cs" />
+    <Compile Include="Data Contracts\KeyValueData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service Contracts\IExtractedDataService.cs" />
+    <Compile Include="Service Contracts\IFinancialInstrumentService.cs" />
+    <Compile Include="Service Contracts\IFinstatService.cs" />
+    <Compile Include="Service Contracts\IIFRS9Service.cs" />
+    <Compile Include="Service Contracts\IIFRSCoreService.cs" />
+    <Compile Include="Service Contracts\IIFRSDataViewService.cs" />
+    <Compile Include="Service Contracts\IIFRSLoanService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Fintrak.Shared.Common\Fintrak.Shared.Common.csproj">
+      <Project>{d188c9ca-c170-4496-8cad-c6eee1f3d7d8}</Project>
+      <Name>Fintrak.Shared.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Shared\Fintrak.Shared.Core.Entities\Fintrak.Shared.Core.Entities.csproj">
+      <Project>{86d9d66b-c03b-4643-a9fb-99f96d0a52bc}</Project>
+      <Name>Fintrak.Shared.Core.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Shared\Fintrak.Shared.Core.Framework\Fintrak.Shared.Core.Framework.csproj">
+      <Project>{36c91371-851e-4720-9eb4-53481a50d8c2}</Project>
+      <Name>Fintrak.Shared.Core.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Shared\Fintrak.Shared.IFRS.Entities\Fintrak.Shared.IFRS.Entities.csproj">
+      <Project>{089146eb-3fb8-4519-bab8-81f82ab4092e}</Project>
+      <Name>Fintrak.Shared.IFRS.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Shared\Fintrak.Shared.IFRS.Framework\Fintrak.Shared.IFRS.Framework.csproj">
+      <Project>{fe9d6d20-6338-4694-9edc-f72adc3b391f}</Project>
+      <Name>Fintrak.Shared.IFRS.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

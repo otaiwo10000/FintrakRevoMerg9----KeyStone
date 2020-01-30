@@ -1,0 +1,96 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <button type="button" ng-csv="vm.loanPry" filename="LoanPryExport.csv">Full Export</button>
+            </div>
+            <br />
+            
+            <table id="loanPryTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>
+                        <th>AccountNo</th>
+                        <!--<th>ProductCode</th>-->
+                        <th>ProductName</th>
+                        <th>Value Date</th>
+                        <th>Maturity Date</th>
+                        <th>Int.RepayDate</th>
+                        <th>Prin.RepayDate</th>
+                        <th>Int.Freq</th>
+                        <th>Prin.Freq</th>
+                        <th>Amount</th>
+                        <!--<th>Periodic Repayment Amt</th>-->
+                        <th>Rate</th>
+                        <th>Schedule Type</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="loanPrys in vm.loanPry">
+                        <td>
+                            {{ loanPrys.RefNo}}
+                        </td>
+                        <td>
+                            {{ loanPrys.AccountNo}}
+                        </td>
+                        <!--<td>
+                            {{ loanPrys.ProductCode}}
+                        </td>-->
+                        <td>
+                            {{ loanPrys.ProductName}}
+                        </td>
+                        <td>
+                            {{ loanPrys.ValueDate | date }}
+                        </td>
+                        <td>
+                            {{ loanPrys.MaturityDate | date}}
+                        </td>
+                        <td>
+                            {{ loanPrys.FirstRepaymentdate | date}}
+                        </td>
+                        <td>
+                            {{ loanPrys.InterestFirstRepayDate | date}}
+                        </td>
+                        <td>
+                            {{ loanPrys.InterestRepayFreq }}
+                        </td>
+                        <td>
+                            {{ loanPrys.PrincipalRepayFreq }}
+                        </td>
+                        <td>
+                            {{ loanPrys.Amount | currency :"":0}}
+                        </td>
+                        <!--<td>
+                            {{ loanPrys.PeriodicRepaymentAmount | currency :"":0}}
+                        </td>-->
+                        <td>
+                            {{ loanPrys.Rate}}
+                        </td>
+                        <td>
+                            {{ loanPrys.ScheduleName}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-loanprydata-edit({pryId:loanPrys.PryId})">
+                                Edit
+                            </a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

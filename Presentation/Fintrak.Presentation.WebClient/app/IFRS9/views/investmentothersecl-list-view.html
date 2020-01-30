@@ -1,0 +1,141 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-internalratingbased-edit({internalratingbasedId:0})"> Create New</a>
+            </div>-->
+            <br />
+            <div class="row">
+                <div class="col-md-7">
+                    <form ng-submit="vm.loadInvestmentOthersECLs(vm.refNo)">
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Search by RefNo" data-ng-model="vm.refNo" style="width:350px" />
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.loadInvestmentOthersECLs(vm.refNo)">Load</button>
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.refresh()">Refresh</button>
+                    </form>
+                </div>
+                <br />
+
+                <table id="investmentotherseclTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                    <thead>
+                        <tr>
+                            <th>RefNo</th>
+                            <th>counterparty</th>
+                            <th>Asset Type</th>
+                            <th>Period</th>
+                            <th>Unsecured Exposure</th>
+                            <th>LGD Best</th>
+                            <th>PD Best</th>
+                            <th>ECL Best</th>
+                            <th>LGD Optimistic</th>
+                            <th>PD Optimistic</th>
+                            <th>ECL Optimisitc</th>
+                            <th>LGD Downturn</th>
+                            <th>PD Downturn</th>
+                            <th>ECL Downturn</th>
+                            <th>LGD Macro Best</th>
+                            <th>LGD Macro Optimisitc</th>
+                            <th>Monthly Interest</th>
+                            <th>Interest Rate</th>
+                            <th>EIR</th>
+                            <th>Discount Factor</th>
+                            <th>Stage</th>
+                            <th>Rating</th>
+                            <!--<th style="width: 3%;">Action</th>-->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="investmentothersecl in vm.investmentothersecls">
+                            <td>
+                                {{ internalRatingBased.RefNo}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.counterparty}}
+                            </td>
+
+                            <td>
+                                {{ internalRatingBased.asset_type}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.period}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.unsecured_exposure}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.lgdbest}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.pdbest}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.eclbest}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.lgdoptimistic}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.pdoptimistic}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.ecloptimisitc}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.lgdDown}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.pd_down}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.ecldownturn}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.lgd_macro_best}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.lgd_macro_optim}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.lgd_macro_down}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.monthly_int}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.interest_rate}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.eir}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.discount_factor}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.stage}}
+                            </td>
+                            <td>
+                                {{ internalRatingBased.rating}}
+                            </td>
+                            <!--<td>
+                                <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-internalratingbased-edit({internalratingbasedId: internalRatingBased.InternalRatingBasedId})">
+                                    Edit
+                                </a>
+                            </td>-->
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+    </div>
+</div>

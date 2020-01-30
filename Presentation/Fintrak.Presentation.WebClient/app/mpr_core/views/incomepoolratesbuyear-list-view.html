@@ -1,0 +1,73 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-incomepoolratesbuyear-edit({ID:0})"> Create New</a>
+            </div>
+            <br />
+
+            <table id="incomePoolRateSbuYearTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Levels</th>
+                        <th>SBU</th>
+                        <th>Rate</th>
+                        <th>Category</th>
+                        <th>Currency Type</th>
+                        <th>Period</th>
+                        <th>Year</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="incomePoolRateSbuYear in vm.incomePoolRateSbuYears">
+                        <td>
+                            {{ incomePoolRateSbuYear.Levels}}
+                        </td>
+
+                        <td>
+                            {{ incomePoolRateSbuYear.SBU}}
+                        </td>
+
+                        <td>
+                            {{ incomePoolRateSbuYear.Rate}}
+                        </td>
+
+                        <td>
+                            {{ incomePoolRateSbuYear.Category}}
+                        </td>
+
+                        <td>
+                            {{ incomePoolRateSbuYear.Currency_Type}}
+                        </td>
+
+                        <td>
+                            {{ incomePoolRateSbuYear.Period}}
+                        </td>
+
+                        <td>
+                            {{ incomePoolRateSbuYear.Year}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-incomepoolratesbuyear-edit({ID: incomePoolRateSbuYear.ID})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
